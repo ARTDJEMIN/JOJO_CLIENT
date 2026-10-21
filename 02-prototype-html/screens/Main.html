@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Jojo — Accueil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/jojo-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1B1714;text-decoration:none}a:hover{color:#C04E2A}
+button,input{font-family:inherit}
+.hs{scrollbar-width:none}.hs::-webkit-scrollbar{display:none}
+@keyframes jojoPulse{0%{transform:scale(0.6);opacity:0.5}100%{transform:scale(2.2);opacity:0}}
+.pulse{animation:jojoPulse 2s ease-out infinite}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F1EEE8; font-family: Inter, system-ui, sans-serif; color: #1B1714; position: relative; overflow: hidden">
+
+  <div role="img" aria-label="Carte Google Maps centrée sur votre position" style="position: absolute; inset: 0">
+    <svg width="390" height="844" viewBox="0 0 390 844" fill="none" aria-hidden="true" style="display: block">
+      <rect width="390" height="844" fill="#F1EEE8"/>
+      <rect x="240" y="40" width="130" height="96" rx="10" fill="#D6EBCF"/>
+      <rect x="18" y="372" width="96" height="74" rx="10" fill="#D6EBCF"/>
+      <rect x="292" y="402" width="84" height="62" rx="10" fill="#D6EBCF"/>
+      <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round">
+        <path d="M0 70 L390 96"/><path d="M0 150 L390 160"/><path d="M0 250 L390 238"/><path d="M0 300 L390 318"/><path d="M0 360 L390 352"/><path d="M0 470 L390 486"/><path d="M0 530 L390 520"/><path d="M0 600 L390 612"/>
+        <path d="M40 0 L58 844"/><path d="M110 0 L98 844"/><path d="M162 0 L176 844"/><path d="M232 0 L222 844"/><path d="M286 0 L300 844"/><path d="M350 0 L342 844"/>
+      </g>
+      <g stroke="#E4DDD3" stroke-width="11" stroke-linecap="round">
+        <path d="M-10 214 C 90 230, 170 196, 400 270"/>
+        <path d="M140 -10 C 150 140, 120 300, 200 460 S 260 700, 250 860"/>
+      </g>
+      <g stroke="#FFFFFF" stroke-width="8" stroke-linecap="round">
+        <path d="M-10 214 C 90 230, 170 196, 400 270"/>
+        <path d="M140 -10 C 150 140, 120 300, 200 460 S 260 700, 250 860"/>
+      </g>
+      <path d="M-10 420 C 100 396, 210 446, 400 384" stroke="#F3DA96" stroke-width="9" stroke-linecap="round"/>
+      <path d="M-20 168 C 50 196, 90 120, 160 150 S 250 236, 290 196 S 360 120, 410 150" stroke="#B6D9F2" stroke-width="20" stroke-linecap="round"/>
+      <text x="206" y="296" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#6E675F">Nanterre</text>
+      <text x="296" y="140" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#8A837A">La Défense</text>
+      <text x="24" y="352" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#8A837A">Rueil-Malmaison</text>
+      <sc-if value="{{hasRequest}}" hint-placeholder-val="{{false}}">
+        <path d="M150 330 L176 318 L220 300 L262 262 L300 246 L392 236" stroke="#C04E2A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="150" cy="330" r="7" fill="#C04E2A" stroke="#FFFFFF" stroke-width="3"/>
+      </sc-if>
+      <sc-if value="{{showMe}}" hint-placeholder-val="{{true}}">
+        <circle cx="195" cy="360" r="40" fill="#4285F4" fill-opacity="0.12"/>
+        <circle class="pulse" cx="195" cy="360" r="14" fill="#4285F4" fill-opacity="0.3" style="transform-origin: 195px 360px"/>
+        <circle cx="195" cy="360" r="8" fill="#4285F4" stroke="#FFFFFF" stroke-width="3"/>
+      </sc-if>
+    </svg>
+  </div>
+
+  <sc-if value="{{showMe}}" hint-placeholder-val="{{true}}">
+    <div style="position: absolute; left: 0; right: 0; top: 380px; display: flex; justify-content: center">
+      <div style="background: #FFFFFF; border-radius: 999px; padding: 5px 10px; box-shadow: 0 2px 8px rgba(27,23,20,0.12); font-size: 12px; font-weight: 600">Vous êtes ici</div>
+    </div>
+  </sc-if>
+
+  <div style="position: absolute; top: 52px; left: 16px; right: 16px; display: flex; gap: 8px; align-items: center">
+    <label style="flex: 1; height: 46px; box-sizing: border-box; background: #FFFFFF; border-radius: 23px; box-shadow: 0 2px 10px rgba(27,23,20,0.10); display: flex; align-items: center; gap: 10px; padding: 0 16px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input aria-label="Rechercher une adresse" placeholder="Où allez-vous ?" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 15px; color: #1B1714">
+    </label>
+    <button aria-label="Notifications" style="width: 46px; height: 46px; flex-shrink: 0; border-radius: 23px; border: 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(27,23,20,0.10); display: flex; align-items: center; justify-content: center; color: #1B1714; cursor: pointer">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+    </button>
+  </div>
+
+  <button aria-label="Recentrer sur ma position" style="position: absolute; right: 16px; top: {{recenterTop}}; width: 44px; height: 44px; border-radius: 22px; border: 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(27,23,20,0.12); color: #4285F4; display: flex; align-items: center; justify-content: center; cursor: pointer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3L3 10.5l7.5 3 3 7.5z"/></svg>
+  </button>
+
+  <sc-if value="{{hasRequest}}" hint-placeholder-val="{{false}}">
+    <a href="Demandes.dc.html" style="position: absolute; left: 16px; right: 16px; top: 534px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 4px 14px rgba(27,23,20,0.14); padding: 12px 14px; display: flex; align-items: center; gap: 10px">
+      <span style="width: 8px; height: 8px; border-radius: 4px; background: #C04E2A; flex-shrink: 0"></span>
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><b style="font-size: 14px">Transport en cours</b><span style="font-size: 12px; color: #6E625A">Recherche d'un Jogger · sam. 24 oct.</span></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </sc-if>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 84px; background: #FFFFFF; border-radius: 24px 24px 0 0; box-shadow: 0 -4px 16px rgba(27,23,20,0.08); padding: 8px 0 16px; display: flex; flex-direction: column; gap: 12px">
+    <div aria-hidden="true" style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #E2D6CA"></div>
+    <h1 style="margin: 0; padding: 0 20px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em">De quoi avez-vous besoin ?</h1>
+
+    <div class="hs" role="list" aria-label="Services" style="display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: 20px; padding: 0 20px">
+      <a role="listitem" href="Adresses.dc.html" style="scroll-snap-align: start; flex: 0 0 auto; height: 44px; box-sizing: border-box; border-radius: 22px; background: #FBEDE7; color: #A5401F; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v4H3z"/><path d="M5 17v2M19 17v2"/></svg>
+        Transport
+      </a>
+      <a role="listitem" href="DemAdresses.dc.html" style="scroll-snap-align: start; flex: 0 0 auto; height: 44px; box-sizing: border-box; border-radius: 22px; border: 1px solid #E6DCD2; background: #FFFFFF; color: #1B1714; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C04E2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></svg>
+        Déménagement
+      </a>
+      <a role="listitem" href="GBMission.dc.html" style="scroll-snap-align: start; flex: 0 0 auto; height: 44px; box-sizing: border-box; border-radius: 22px; border: 1px solid #E6DCD2; background: #FFFFFF; color: #1B1714; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C04E2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="4.5" r="2"/><path d="M5 21v-6l-1.5-4L7 8l3 3h3"/><path d="M9 21v-5"/><rect x="13" y="8" width="8" height="7" rx="1"/></svg>
+        Gros bras
+      </a>
+      <button role="listitem" style="scroll-snap-align: start; flex: 0 0 auto; height: 44px; border-radius: 22px; border: 1px solid #E6DCD2; background: #FFFFFF; color: #1B1714; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C04E2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="12" width="8" height="8" rx="1"/><rect x="13" y="12" width="8" height="8" rx="1"/><rect x="8" y="3" width="8" height="8" rx="1"/></svg>
+        Groupage
+      </button>
+      <button role="listitem" style="scroll-snap-align: start; flex: 0 0 auto; height: 44px; border-radius: 22px; border: 1px solid #E6DCD2; background: #FFFFFF; color: #1B1714; padding: 0 16px 0 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C04E2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16v-4l2-4h7l2 4v4z"/><circle cx="5.5" cy="17" r="1.6"/><circle cx="10.5" cy="17" r="1.6"/><path d="M13 12l6-7v9"/><path d="M19 14v1.5a1.5 1.5 0 1 1-1.5 1.5"/></svg>
+        Remorquage
+      </button>
+    </div>
+  </div>
+
+  <nav aria-label="Menu principal" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; background: #FFFFFF; border-top: 1px solid #F0E8E0; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end">
+    <a href="Main.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #C04E2A; font-size: 11px; font-weight: 600; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      Accueil
+    </a>
+    <a href="Demandes.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>
+      Demandes
+    </a>
+    <div style="display: flex; justify-content: center">
+      <a href="NouvelleDemande.dc.html" aria-label="Nouvelle demande" style="width: 52px; height: 52px; margin-top: -18px; border-radius: 26px; background: #C04E2A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(192,78,42,0.3)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </a>
+    </div>
+    <a href="Messages.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+      Messages
+    </a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Profil
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"hasRequest":{"editor":"boolean","default":false,"section":"État du client"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var hasRequest = this.props.hasRequest ?? false;
+    return {
+      hasRequest: hasRequest,
+      showMe: !hasRequest,
+      recenterTop: hasRequest ? '474px' : '546px'
+    };
+  }
+}
+</script>
+</body>
+</html>

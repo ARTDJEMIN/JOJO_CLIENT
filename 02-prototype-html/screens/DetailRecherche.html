@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Demande — Recherche en cours · offres</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/jojo-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714;text-decoration:none}a:hover{color:#C04E2A}
+button{font-family:inherit}
+@keyframes jojoPulse{0%{transform:scale(0.7);opacity:0.6}100%{transform:scale(2.4);opacity:0}}
+.pulse{animation:jojoPulse 1.8s ease-out infinite}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="Demandes.dc.html" aria-label="Retour aux demandes" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Détail de la demande</div>
+    <div style="width: 44px; height: 44px"></div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <div style="font-weight: 700; font-size: 20px">Transport</div>
+        <div style="font-size: 13px; color: #6E625A">Nanterre → Paris 12e · sam. 24 oct. · 09:00</div>
+      </div>
+      <span style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 11px; background: {{badgeBg}}; color: {{badgeColor}}; font-size: 12px; font-weight: 700; white-space: nowrap"><span style="width: 7px; height: 7px; border-radius: 4px; background: {{badgeColor}}"></span>{{badge}}</span>
+    </div>
+
+    <sc-if value="{{searching}}" hint-placeholder-val="{{true}}">
+      <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 14px 16px; display: flex; gap: 14px; align-items: center">
+        <span style="position: relative; width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center">
+          <span class="pulse" aria-hidden="true" style="position: absolute; width: 18px; height: 18px; border-radius: 9px; background: #C04E2A"></span>
+          <span style="position: relative; width: 40px; height: 40px; border-radius: 20px; background: #FBEDE7; color: #C04E2A; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
+        </span>
+        <div style="display: flex; flex-direction: column; gap: 3px">
+          <b style="font-size: 15px">{{offerCount}}</b>
+          <span style="font-size: 13px; line-height: 1.4; color: #5E534B">D'autres Joggers peuvent encore répondre. Acceptez une offre pour réserver.</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <div style="font-weight: 700; font-size: 17px">Offres reçues</div>
+        <div style="font-size: 12px; color: #6E625A">De la meilleure à la moins bonne</div>
+      </div>
+
+      <sc-for list="{{offers}}" as="o" hint-placeholder-count="3">
+        <div style="background: #FFFFFF; border: {{o.border}}; border-radius: 18px; overflow: hidden">
+          <sc-if value="{{o.best}}" hint-placeholder-val="{{false}}">
+            <div style="background: #C04E2A; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 6px 14px; display: flex; align-items: center; gap: 6px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>
+              Meilleure offre
+            </div>
+          </sc-if>
+          <div style="padding: 14px; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <span style="width: 26px; flex-shrink: 0; font-weight: 700; font-size: 14px; color: #6E625A">#{{o.rank}}</span>
+              <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 22px; background: #1B1714; color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center">{{o.initial}}</span>
+              <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+                <b style="font-size: 15px">{{o.name}}</b>
+                <span style="display: flex; align-items: center; gap: 4px; font-size: 13px; color: #5E534B">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#C98A1B" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>
+                  {{o.rating}} · {{o.reviews}}
+                </span>
+              </span>
+              <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+                <b style="font-size: 18px; color: #A5401F">{{o.price}}</b>
+                <span style="font-size: 11px; color: #6E625A">{{o.duration}}</span>
+              </span>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span style="background: #F5ECE3; border-radius: 999px; padding: 4px 9px; font-size: 12px; color: #5E534B">{{o.truck}}</span>
+              <span style="background: {{o.timeBg}}; border-radius: 999px; padding: 4px 9px; font-size: 12px; color: {{o.timeColor}}; font-weight: 600">{{o.time}}</span>
+            </div>
+
+            <sc-if value="{{o.open}}" hint-placeholder-val="{{false}}">
+              <div style="background: #FCF8F4; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+                <div style="display: flex; justify-content: space-between"><span style="color: #6E625A">Formule</span><b>{{o.formula}}</b></div>
+                <div style="display: flex; justify-content: space-between"><span style="color: #6E625A">Kilomètres</span><b>31,7 km inclus</b></div>
+                <div style="display: flex; justify-content: space-between"><span style="color: #6E625A">Dépassement</span><b>{{o.overtime}}</b></div>
+                <div style="display: flex; justify-content: space-between"><span style="color: #6E625A">Prestations réalisées</span><b>{{o.jobs}}</b></div>
+                <div style="border-top: 1px solid #EFE4DA; padding-top: 10px; line-height: 1.45; color: #1B1714">« {{o.note}} »</div>
+              </div>
+            </sc-if>
+
+            <div style="display: flex; gap: 8px">
+              <button onClick="{{o.toggle}}" aria-expanded="{{o.openAria}}" style="flex: 1; height: 42px; border-radius: 21px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 600; font-size: 13px; cursor: pointer">{{o.toggleLabel}}</button>
+              <button onClick="{{o.reject}}" style="flex: 1; height: 42px; border-radius: 21px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #A5401F; font-weight: 600; font-size: 13px; cursor: pointer">Rejeter</button>
+              <button onClick="{{o.accept}}" style="flex: 1; height: 42px; border-radius: 21px; border: 0; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 13px; cursor: pointer">Accepter</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+
+      <sc-if value="{{noOffers}}" hint-placeholder-val="{{false}}">
+        <div style="border: 1.5px dashed #D2BFAE; border-radius: 18px; padding: 20px; text-align: center; font-size: 14px; line-height: 1.45; color: #5E534B">Toutes les offres ont été rejetées.<br>Nous vous prévenons dès qu'un nouveau Jogger répond.</div>
+      </sc-if>
+
+      <sc-if value="{{hasRejected}}" hint-placeholder-val="{{false}}">
+        <button onClick="{{restore}}" style="align-self: center; height: 40px; padding: 0 14px; border: 0; background: transparent; color: #5E534B; font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer">{{rejectedLabel}} · Annuler</button>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{accepted}}" hint-placeholder-val="{{false}}">
+      <div style="background: #EEF7F1; border: 1.5px solid #8CC3A3; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; gap: 12px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <b style="font-size: 15px">Offre de {{chosen.name}} acceptée</b>
+            <span style="font-size: 13px; line-height: 1.4; color: #5E534B">Les autres offres sont clôturées et ne sont plus consultables. La discussion avec votre Jogger est ouverte dans Messages.</span>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 12px">
+          <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 22px; background: #1B1714; color: #FFFFFF; font-weight: 700; display: flex; align-items: center; justify-content: center">{{chosen.initial}}</span>
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><b style="font-size: 15px">{{chosen.name}}</b><span style="font-size: 12px; color: #5E534B">{{chosen.truck}} · {{chosen.time}}</span></span>
+          <b style="font-size: 18px; color: #A5401F">{{chosen.price}}</b>
+        </div>
+        <a href="Conversation.dc.html" style="height: 48px; border-radius: 24px; background: #1B1714; color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+          Discuter avec le Jogger
+        </a>
+      </div>
+    </sc-if>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 4px 16px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Départ</span><b style="text-align: right">Nanterre, 92000</b></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Escale</span><b style="text-align: right">Issy-les-Moulineaux · 60 min</b></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Arrivée</span><b style="text-align: right">Paris 12e, 75012</b></div>
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Vos affaires</span><b>1 objet · 1,5 m³</b></div>
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; font-size: 14px"><span style="color: #6E625A">Votre estimation</span><b>160 €</b></div>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px; display: flex; justify-content: center">
+    <button style="height: 44px; border: 0; background: transparent; color: #A5401F; font-weight: 600; font-size: 14px; cursor: pointer">Annuler la demande</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: 'o1', rejected: {}, accepted: null };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var all = [
+      { id: 'o1', name: 'Moussa K.', initial: 'M', price: '150 €', duration: '4 h', rating: '4,9', reviews: '128 avis', truck: 'Camion 12 m³', time: 'Arrive à 09:00', onTime: true,
+        formula: 'DemSolo · 4 h', overtime: '0,80 €/min', jobs: '210', note: 'Je peux récupérer le canapé à l’escale sans surcoût. Couvertures et sangles fournies.' },
+      { id: 'o2', name: 'Julien R.', initial: 'J', price: '160 €', duration: '4 h', rating: '4,7', reviews: '54 avis', truck: 'Camion 12 m³', time: 'Arrive à 09:00', onTime: true,
+        formula: 'DemSolo · 4 h', overtime: '0,83 €/min', jobs: '76', note: 'Disponible toute la matinée, je peux venir plus tôt si besoin.' },
+      { id: 'o3', name: 'Aïcha B.', initial: 'A', price: '145 €', duration: '4 h', rating: '4,2', reviews: '12 avis', truck: 'Camion 20 m³', time: 'Arrive à 10:30 (+1 h 30)', onTime: false,
+        formula: 'DemSolo · 4 h', overtime: '0,90 €/min', jobs: '15', note: 'Je ne peux pas être là avant 10 h 30.' }
+    ];
+    var visible = all.filter(function (o) { return !st.rejected[o.id]; });
+    var nRej = all.length - visible.length;
+    var offers = visible.map(function (o, i) {
+      var isOpen = st.open === o.id;
+      return {
+        rank: i + 1, best: i === 0, name: o.name, initial: o.initial, price: o.price, duration: o.duration,
+        rating: o.rating, reviews: o.reviews, truck: o.truck, time: o.time,
+        timeBg: o.onTime ? '#E3F2EA' : '#FFF1D6', timeColor: o.onTime ? '#2F7A55' : '#8A5A00',
+        formula: o.formula, overtime: o.overtime, jobs: o.jobs, note: o.note,
+        border: i === 0 ? '1.5px solid #C04E2A' : '1px solid #E6D8CB',
+        open: isOpen, openAria: isOpen ? 'true' : 'false', toggleLabel: isOpen ? 'Masquer' : 'Détails',
+        toggle: function () { self.setState({ open: isOpen ? null : o.id }); },
+        reject: function () { var r = Object.assign({}, st.rejected); r[o.id] = true; self.setState({ rejected: r }); },
+        accept: function () { self.setState({ accepted: o.id }); }
+      };
+    });
+    var chosen = all.filter(function (o) { return o.id === st.accepted; })[0] || all[0];
+    var acc = !!st.accepted;
+    return {
+      searching: !acc, accepted: acc, chosen: chosen,
+      offers: offers, noOffers: !acc && visible.length === 0,
+      offerCount: visible.length + (visible.length > 1 ? ' offres reçues' : ' offre reçue'),
+      hasRejected: nRej > 0, rejectedLabel: nRej + (nRej > 1 ? ' offres rejetées' : ' offre rejetée'),
+      restore: function () { self.setState({ rejected: {} }); },
+      badge: acc ? 'Acceptée' : 'Recherche en cours',
+      badgeBg: acc ? '#E3F2EA' : '#FBEDE7',
+      badgeColor: acc ? '#2F7A55' : '#A5401F'
+    };
+  }
+}
+</script>
+</body>
+</html>

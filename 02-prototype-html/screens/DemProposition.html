@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Déménagement — Votre proposition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/jojo-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="DemDate.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Déménagement</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 5 sur 5</span><span style="font-weight: 700; color: #A5401F">Votre prestation</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Votre proposition personnalisée</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">Nous estimons votre déménagement à <b style="color: #1B1714">5 h</b> avec un camion de 20 m³ et 2 Gros Bras. Changez la durée, le camion ou l'équipe : le montant se recalcule aussitôt.</p>
+    </div>
+
+    <div style="border-radius: 24px; overflow: hidden; background: #FFFFFF; border: 1px solid #E6D8CB">
+      <div style="background: #C04E2A; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="align-self: flex-start; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 5px 11px; font-size: 12px; font-weight: 700">{{badge}}</span>
+        <div style="margin-top: 6px; font-size: 14px; font-weight: 600">À partir de</div>
+        <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -0.04em">{{total}} €</div>
+        <div style="font-size: 14px">{{formula}} · {{hours}} h de prestation · 14 m³</div>
+        <div style="font-size: 13px; opacity: 0.9">{{onSite}}</div>
+      </div>
+      <div style="padding: 4px 20px 8px">
+        <div style="display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Formule {{formula}} · {{hours}} h</span><b>{{base}} €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Kilomètres · 31,7 sur {{kmIncl}} inclus</span><b>{{kmCost}} €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Majoration horaire · 9 h</span><b>0 €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #F1E7DD; font-size: 16px"><b>Total estimé</b><b style="color: #A5401F">{{total}} €</b></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0 4px; font-size: 13px"><span style="color: #5E534B">Au-delà de la durée réservée</span><b style="white-space: nowrap">{{overtime}}</b></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 4px 0 12px; font-size: 13px"><span style="color: #5E534B">Km au-delà de l'inclus</span><b style="white-space: nowrap">{{extraKm}}</b></div>
+      </div>
+      <div style="background: #F8F1EA; padding: 14px 20px; font-size: 13px; line-height: 1.5; color: #5E534B"><b style="color: #1B1714">Ceci est une estimation, pas un devis.</b> Stationnement et péages s'ajoutent au réel. Annulation gratuite jusqu'à 2 h avant.</div>
+    </div>
+
+    <div style="display: flex; gap: 12px; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #C04E2A; background: #FBEDE7">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A5401F" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5h.01"/></svg>
+      <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.45"><b style="color: #A5401F">Nos conseils</b>{{advice}}</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-weight: 700; font-size: 16px">Durée de la prestation</div>
+        <div style="font-size: 13px; line-height: 1.4; color: #6E625A">Jojo estime 5 h. Vous pouvez réserver jusqu'à 4 h de plus.</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <button aria-label="Réduire la durée" onClick="{{dec}}" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 22px; cursor: pointer">−</button>
+        <div style="width: 64px; text-align: center; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 28px">{{hours}} h</div>
+        <button aria-label="Augmenter la durée" onClick="{{inc}}" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 22px; cursor: pointer">+</button>
+        <div style="font-size: 13px; color: {{durColor}}; font-weight: 600">{{durNote}}</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 18px">Le camion</div>
+      <sc-for list="{{trucks}}" as="t" hint-placeholder-count="2">
+        <button onClick="{{t.pick}}" aria-pressed="{{t.on}}" disabled="{{t.off}}" style="text-align: left; padding: 14px 16px; border-radius: 18px; border: {{t.border}}; background: {{t.bg}}; color: #1B1714; display: flex; align-items: center; gap: 14px; cursor: pointer; opacity: {{t.opacity}}">
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 3px">
+            <div style="font-weight: 700; font-size: 16px">{{t.name}}</div>
+            <div style="font-size: 13px; color: #6E625A">{{t.desc}}</div>
+          </div>
+          <div style="font-weight: 800; font-size: 16px; text-align: right">{{t.price}}</div>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 18px">L'équipe</div>
+      <sc-for list="{{crew}}" as="c" hint-placeholder-count="4">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" disabled="{{c.off}}" style="text-align: left; padding: 14px 16px; border-radius: 18px; border: {{c.border}}; background: {{c.bg}}; color: #1B1714; display: flex; align-items: center; gap: 12px; cursor: pointer; opacity: {{c.opacity}}">
+          <span aria-hidden="true" style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 10px; border: {{c.ring}}; box-sizing: border-box; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 5px; background: {{c.dot}}"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 3px">
+            <span style="font-weight: 700; font-size: 15px">{{c.name}}</span>
+            <span style="font-size: 13px; color: #5E534B">{{c.desc}}</span>
+          </span>
+          <span style="font-weight: 800; font-size: 15px; color: #A5401F; text-align: right">{{c.price}}</span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px; display: flex; align-items: center; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 2px; min-width: 92px">
+      <div style="font-size: 12px; color: #6E625A">Total estimé</div>
+      <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; color: #A5401F">{{total}} €</div>
+    </div>
+    <a href="DemRecap.dc.html" style="flex: 1; height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Réserver
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { hours: 5, truck: 20, gb: 2 };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var EST = 5, KM = 31.7;
+    var G = {
+      '12-0': { name: 'DemSolo', p: [50, 85, 120, 160, 200, 240, 280, 320], km: [15, 20, 30, 40, 50, 60, 70, 80], min: 1, ot: '0,83 €/min', xk: 1.5, pause: false },
+      '12-1': { name: 'Moov', p: [60, 110, 150, 200, 250, 300, 335, 375], km: [10, 20, 30, 40, 45, 50, 55, 60], min: 1, ot: '1 €/min', xk: 1.5, pause: true },
+      '12-2': { name: 'Moov+2', p: [85, 150, 225, 300, 380, 450, 490, 575], km: [10, 20, 30, 40, 45, 50, 55, 60], min: 1, ot: '1,41 €/min', xk: 1.5, pause: true },
+      '20-1': { name: 'Cargo', p: [80, 130, 195, 260, 325, 390, 430, 470], km: [15, 20, 30, 40, 45, 50, 55, 60], min: 1, ot: '1,16 €/min', xk: 1.7, pause: true },
+      '20-2': { name: 'Cargo+2', p: [110, 200, 290, 380, 470, 560, 610, 680], km: [15, 20, 30, 40, 45, 50, 55, 60], min: 1, ot: '1,66 €/min', xk: 1.7, pause: true },
+      '20-3': { name: 'Cargo+3', p: [null, null, null, 450, 550, 650, 740, 820], km: [null, null, null, 40, 45, 50, 55, 60], min: 4, ot: '2 €/min', xk: 1.7, pause: true }
+    };
+    var fmt = function (n) { var r = Math.round(n * 100) / 100; return (r % 1 === 0 ? String(r) : r.toFixed(2)).replace('.', ','); };
+    var price = function (truck, gb, h) {
+      var f = G[truck + '-' + gb];
+      if (!f) return null;
+      var hh = Math.max(f.min, h);
+      var base = f.p[hh - 1];
+      if (base == null) return null;
+      return base + Math.max(0, KM - f.km[hh - 1]) * f.xk;
+    };
+    var h = st.hours, f = G[st.truck + '-' + st.gb];
+    if (h < f.min) h = f.min;
+    var base = f.p[h - 1], kmIncl = f.km[h - 1], kmCost = Math.max(0, KM - kmIncl) * f.xk;
+    var total = base + kmCost;
+    var onSite = f.pause && h >= 5 ? (h + 1) + ' h sur place, dont 1 h de pause non facturée' : h + ' h sur place';
+    var on = '1.5px solid #C04E2A', off = '1px solid #DCCBBB';
+    var trucks = [
+      { m3: 12, name: 'Camion 12 m³', desc: 'Studio, petit T2' },
+      { m3: 20, name: 'Camion 20 m³', desc: 'T2 chargé, T3, gros volumes' }
+    ].map(function (t) {
+      var p = price(t.m3, st.gb, h), sel = t.m3 === st.truck;
+      return { name: t.name, desc: p == null ? 'Indisponible avec ' + st.gb + ' Gros Bras' : t.desc,
+        price: p == null ? '—' : fmt(p) + ' €', on: sel ? 'true' : 'false', off: p == null,
+        border: sel ? on : off, bg: sel ? '#FBEDE7' : '#FFFFFF', opacity: p == null ? 0.5 : 1,
+        pick: function () { if (p != null) self.setState({ truck: t.m3 }); } };
+    });
+    var crew = [0, 1, 2, 3].map(function (n) {
+      var p = price(st.truck, n, h), sel = n === st.gb, ff = G[st.truck + '-' + n];
+      var name = n === 0 ? 'Je m’occupe de tout' : n + ' Gros Bras';
+      return { name: name, desc: ff ? ff.name + (n === 0 ? ' · vous chargez, le Jogger conduit' : ' · portent avec le Jogger') : 'Indisponible avec ce camion',
+        price: p == null ? '—' : fmt(p) + ' €', on: sel ? 'true' : 'false', off: p == null,
+        border: sel ? on : off, bg: sel ? '#FBEDE7' : '#FFFFFF', opacity: p == null ? 0.5 : 1,
+        ring: sel ? '2px solid #C04E2A' : '2px solid #CDBFB2', dot: sel ? '#C04E2A' : 'transparent',
+        pick: function () { if (p != null) self.setState({ gb: n, hours: Math.max(h, ff.min) }); } };
+    });
+    var advice = st.truck === 20
+      ? 'Camion 20 m³ : comptez au minimum 1 h 30 de chargement et autant de déchargement. Une demi-journée est le format habituel.'
+      : 'Camion 12 m³ : comptez au minimum 1 h de chargement et 1 h de déchargement.';
+    return {
+      hours: h, formula: f.name, base: fmt(base), kmIncl: kmIncl, kmCost: fmt(kmCost), total: fmt(total),
+      overtime: f.ot, extraKm: fmt(f.xk) + ' €/km', onSite: onSite, advice: advice,
+      badge: st.truck === 20 && st.gb === 2 && h === EST ? 'Recommandé pour vous' : 'Votre sélection',
+      trucks: trucks, crew: crew,
+      durNote: h === EST ? 'durée recommandée' : (h < EST ? 'risque de dépassement' : 'marge confortable'),
+      durColor: h < EST ? '#A5401F' : '#6E625A',
+      inc: function () { self.setState({ hours: Math.min(8, Math.min(EST + 4, h + 1)) }); },
+      dec: function () { self.setState({ hours: Math.max(f.min, h - 1) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

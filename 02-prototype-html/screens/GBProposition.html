@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gros bras — Votre proposition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/jojo-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button{font-family:inherit}
+.hs{scrollbar-width:none}.hs::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="GBDate.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Gros bras</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 5 sur 5</span><span style="font-weight: 700; color: #A5401F">Votre prestation</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Votre proposition</h1>
+
+    <div style="border-radius: 24px; overflow: hidden; background: #FFFFFF; border: 1px solid #E6D8CB">
+      <div style="background: #C04E2A; color: #FFFFFF; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 13px; font-weight: 600">Estimation · lun. 26 oct. · 13:00</div>
+        <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 52px; line-height: 1; letter-spacing: -0.04em">{{total}} €</div>
+        <div style="font-size: 14px">{{summary}}</div>
+      </div>
+      <div style="padding: 4px 20px 8px">
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #5E534B">Gros Bras · {{n}} × {{h}} h</span><b>{{base}} €</b></div>
+        <sc-if value="{{heavy}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #5E534B">Charge lourde · lave-linge 89 kg (+ 50 %)</span><b>{{heavyCost}} €</b></div>
+        </sc-if>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #5E534B">Majoration horaire · 13:00</span><b>0 €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 16px"><b>Total estimé</b><b style="color: #A5401F">{{total}} €</b></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; font-size: 13px"><span style="color: #5E534B">Au-delà de la durée réservée</span><b>0,33 €/min par Gros Bras</b></div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <div style="font-weight: 700; font-size: 16px">Durée</div>
+        <div style="font-size: 12px; color: #6E625A">Jojo conseille {{est}} h</div>
+      </div>
+      <div class="hs" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 0 16px">
+        <sc-for list="{{tiers}}" as="t" hint-placeholder-count="7">
+          <button onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="flex-shrink: 0; width: 66px; height: 64px; border-radius: 14px; border: {{t.border}}; background: {{t.bg}}; color: {{t.color}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer">
+            <span style="font-weight: 800; font-size: 16px">{{t.h}} h</span>
+            <span style="font-size: 12px; font-weight: 600">{{t.price}} €</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="font-size: 12px; line-height: 1.45; color: {{durColor}}">{{durNote}}</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 16px">Nombre de Gros Bras</span><span style="font-size: 12px; color: #6E625A">{{crewNote}}</span></div>
+        <button aria-label="Un Gros Bras de moins" onClick="{{dec}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">−</button>
+        <div style="width: 28px; text-align: center; font-weight: 800; font-size: 20px; color: #A5401F">{{n}}</div>
+        <button aria-label="Un Gros Bras de plus" onClick="{{inc}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">+</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-weight: 700; font-size: 16px">Services en plus</div>
+      <sc-for list="{{extras}}" as="x" hint-placeholder-count="2">
+        <button role="switch" aria-checked="{{x.on}}" onClick="{{x.toggle}}" style="text-align: left; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: {{x.border}}; background: {{x.bg}}; color: #1B1714; cursor: pointer">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><b style="font-size: 14px">{{x.name}}</b><span style="font-size: 12px; color: #6E625A">{{x.desc}}</span></span>
+          <span aria-hidden="true" style="width: 44px; height: 26px; flex-shrink: 0; border-radius: 13px; background: {{x.track}}; position: relative; display: block"><span style="position: absolute; top: 3px; left: {{x.knob}}; width: 20px; height: 20px; border-radius: 10px; background: #FFFFFF"></span></span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px dashed #C9B6A5; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><b style="font-size: 15px">Une autre mission le même jour ?</b><span style="font-size: 12px; color: #6E625A">Un autre lieu, sa propre heure · 3 missions au plus par réservation</span></div>
+      <sc-for list="{{missions}}" as="m" hint-placeholder-count="0">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: #F5ECE3; font-size: 13px">
+          <b style="flex: 1">{{m.label}}</b><span style="color: #6E625A">à compléter</span>
+        </div>
+      </sc-for>
+      <sc-if value="{{canAdd}}" hint-placeholder-val="{{true}}">
+        <button onClick="{{addMission}}" style="align-self: flex-start; height: 40px; padding: 0 14px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #A5401F; font-weight: 600; font-size: 13px; cursor: pointer">+ Ajouter une mission</button>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px; display: flex; align-items: center; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 2px; min-width: 92px">
+      <div style="font-size: 12px; color: #6E625A">Total estimé</div>
+      <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; color: #A5401F">{{total}} €</div>
+    </div>
+    <a href="GBRecap.dc.html" style="flex: 1; height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Réserver
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"heavy":{"editor":"boolean","default":true,"section":"Demande"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { h: 2, n: 2, extras: {}, missions: 1 };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var GRID = [20, 40, 50, 60, 75, 90, 105], EST = 2;
+    var heavy = this.props.heavy ?? true, k = heavy ? 1.5 : 1;
+    var fmt = function (v) { var r = Math.round(v * 100) / 100; return (r % 1 === 0 ? String(r) : r.toFixed(2)).replace('.', ','); };
+    var priceOf = function (h, n) { return GRID[h - 1] * n * k; };
+    var base = GRID[st.h - 1] * st.n, total = base * k;
+    var on = '1.5px solid #C04E2A', off = '1px solid #DCCBBB';
+    var tiers = GRID.map(function (p, i) {
+      var h = i + 1, sel = h === st.h;
+      return { h: h, price: fmt(priceOf(h, st.n)), on: sel ? 'true' : 'false', border: sel ? on : off, bg: sel ? '#C04E2A' : '#FFFFFF', color: sel ? '#FFFFFF' : '#1B1714',
+        pick: function () { self.setState({ h: h }); } };
+    });
+    var onSite = st.h >= 5 ? (st.h + 1) + ' h sur place dont 1 h de pause' : st.h + ' h sur place';
+    var extras = [
+      { id: 'montage', name: 'Montage de meuble', desc: 'Dès 40 € · confirmé sur devis sous 2 h' },
+      { id: 'debarras', name: 'Débarras', desc: 'Dès 40 € · confirmé sur devis sous 2 h' }
+    ].map(function (x) {
+      var o = !!st.extras[x.id];
+      return { name: x.name, desc: x.desc, on: o ? 'true' : 'false', border: o ? on : off, bg: o ? '#FBEDE7' : '#FFFFFF', track: o ? '#C04E2A' : '#D9CCBF', knob: o ? '21px' : '3px',
+        toggle: function () { var e = Object.assign({}, st.extras); e[x.id] = !o; self.setState({ extras: e }); } };
+    });
+    var missions = [];
+    for (var i = 2; i <= st.missions; i++) missions.push({ label: 'Mission ' + i });
+    return {
+      h: st.h, n: st.n, est: EST, heavy: heavy, tiers: tiers, extras: extras, missions: missions,
+      base: fmt(base), heavyCost: fmt(total - base), total: fmt(total),
+      summary: st.n + ' Gros Bras · ' + onSite,
+      durNote: st.h < EST ? 'En dessous de la durée conseillée : le dépassement sera facturé à la minute le jour même.' : (st.h === EST ? 'Durée conseillée pour 4 objets, dont une charge lourde.' : 'Marge confortable : vous ne payez que le palier réservé.'),
+      durColor: st.h < EST ? '#A5401F' : '#6E625A',
+      crewNote: heavy ? '2 conseillés pour un objet de plus de 80 kg' : '1 suffit pour ce volume',
+      inc: function () { self.setState({ n: Math.min(3, st.n + 1) }); },
+      dec: function () { self.setState({ n: Math.max(1, st.n - 1) }); },
+      canAdd: st.missions < 3,
+      addMission: function () { self.setState({ missions: Math.min(3, st.missions + 1) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
