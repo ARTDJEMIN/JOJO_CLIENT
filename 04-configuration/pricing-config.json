@@ -1,0 +1,184 @@
+{
+  "$schema": "./pricing-config.schema.json",
+  "version": "2026-10-01",
+  "currency": "EUR",
+  "status": "published",
+  "labor": {
+    "hourly_rate": 20,
+    "heavy_item_hourly_rate": 30,
+    "special_item_hourly_rate_per_person": 40,
+    "heavy_item_threshold_kg": 80
+  },
+  "trucks": [
+    { "code": "NONE", "capacity_m3": 0 },
+    { "code": "T12", "capacity_m3": 12 },
+    { "code": "T20", "capacity_m3": 20 }
+  ],
+  "formulas": [
+    {
+      "code": "GROS_BRAS", "label": "Gros Bras", "truck": "NONE", "helpers": 1,
+      "min_hours": 1, "max_hours": 7, "overtime_per_min": 0.33, "extra_km_rate": null,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 1, "price": 20, "km_included": 10 },
+        { "hours": 2, "price": 40, "km_included": 10 },
+        { "hours": 3, "price": 50, "km_included": 10 },
+        { "hours": 4, "price": 60, "km_included": 10 },
+        { "hours": 5, "price": 75, "km_included": 10 },
+        { "hours": 6, "price": 90, "km_included": 10 },
+        { "hours": 7, "price": 105, "km_included": 10 }
+      ]
+    },
+    {
+      "code": "DEMSOLO", "label": "DemSolo", "truck": "T12", "helpers": 0,
+      "min_hours": 1, "max_hours": 8, "overtime_per_min": 0.83, "extra_km_rate": 1.5,
+      "pause": null,
+      "tiers": [
+        { "hours": 1, "price": 50, "km_included": 15 },
+        { "hours": 2, "price": 85, "km_included": 20 },
+        { "hours": 3, "price": 120, "km_included": 30 },
+        { "hours": 4, "price": 160, "km_included": 40 },
+        { "hours": 5, "price": 200, "km_included": 50 },
+        { "hours": 6, "price": 240, "km_included": 60 },
+        { "hours": 7, "price": 280, "km_included": 70 },
+        { "hours": 8, "price": 320, "km_included": 80 }
+      ]
+    },
+    {
+      "code": "MOOV", "label": "Moov", "truck": "T12", "helpers": 1,
+      "min_hours": 1, "max_hours": 8, "overtime_per_min": 1.0, "extra_km_rate": 1.5,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 1, "price": 60, "km_included": 10 },
+        { "hours": 2, "price": 110, "km_included": 20 },
+        { "hours": 3, "price": 150, "km_included": 30 },
+        { "hours": 4, "price": 200, "km_included": 40 },
+        { "hours": 5, "price": 250, "km_included": 45 },
+        { "hours": 6, "price": 300, "km_included": 50 },
+        { "hours": 7, "price": 335, "km_included": 55 },
+        { "hours": 8, "price": 375, "km_included": 60 }
+      ]
+    },
+    {
+      "code": "MOOV_2", "label": "Moov+2", "truck": "T12", "helpers": 2,
+      "min_hours": 1, "max_hours": 8, "overtime_per_min": 1.41, "extra_km_rate": 1.5,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 1, "price": 85, "km_included": 10 },
+        { "hours": 2, "price": 150, "km_included": 20 },
+        { "hours": 3, "price": 225, "km_included": 30 },
+        { "hours": 4, "price": 300, "km_included": 40 },
+        { "hours": 5, "price": 380, "km_included": 45 },
+        { "hours": 6, "price": 450, "km_included": 50 },
+        { "hours": 7, "price": 490, "km_included": 55 },
+        { "hours": 8, "price": 575, "km_included": 60 }
+      ]
+    },
+    {
+      "code": "CARGO", "label": "Cargo", "truck": "T20", "helpers": 1,
+      "min_hours": 1, "max_hours": 8, "overtime_per_min": 1.16, "extra_km_rate": 1.7,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 1, "price": 80, "km_included": 15 },
+        { "hours": 2, "price": 130, "km_included": 20 },
+        { "hours": 3, "price": 195, "km_included": 30 },
+        { "hours": 4, "price": 260, "km_included": 40 },
+        { "hours": 5, "price": 325, "km_included": 45 },
+        { "hours": 6, "price": 390, "km_included": 50 },
+        { "hours": 7, "price": 430, "km_included": 55 },
+        { "hours": 8, "price": 470, "km_included": 60 }
+      ]
+    },
+    {
+      "code": "CARGO_2", "label": "Cargo+2", "truck": "T20", "helpers": 2,
+      "min_hours": 1, "max_hours": 8, "overtime_per_min": 1.66, "extra_km_rate": 1.7,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 1, "price": 110, "km_included": 15 },
+        { "hours": 2, "price": 200, "km_included": 20 },
+        { "hours": 3, "price": 290, "km_included": 30 },
+        { "hours": 4, "price": 380, "km_included": 40 },
+        { "hours": 5, "price": 470, "km_included": 45 },
+        { "hours": 6, "price": 560, "km_included": 50 },
+        { "hours": 7, "price": 610, "km_included": 55 },
+        { "hours": 8, "price": 680, "km_included": 60 }
+      ]
+    },
+    {
+      "code": "CARGO_3", "label": "Cargo+3", "truck": "T20", "helpers": 3,
+      "min_hours": 4, "max_hours": 8, "overtime_per_min": 2.0, "extra_km_rate": 1.7,
+      "pause": { "from_hours": 5, "hours": 1 },
+      "tiers": [
+        { "hours": 4, "price": 450, "km_included": 40 },
+        { "hours": 5, "price": 550, "km_included": 45 },
+        { "hours": 6, "price": 650, "km_included": 50 },
+        { "hours": 7, "price": 740, "km_included": 55 },
+        { "hours": 8, "price": 820, "km_included": 60 }
+      ]
+    }
+  ],
+  "selection_matrix": {
+    "NONE": { "1": "GROS_BRAS" },
+    "T12": { "0": "DEMSOLO", "1": "MOOV", "2": "MOOV_2" },
+    "T20": { "1": "CARGO", "2": "CARGO_2", "3": "CARGO_3" }
+  },
+  "duration_modifiers": {
+    "floor_no_lift": { "pct_per_floor": 10, "from_floor": 3, "cancelled_by_person_per_landing": true },
+    "carry_distance": { "pct_per_step": 10, "step_m": 20, "count_started_step": false },
+    "three_floors_total_no_lift": { "threshold_floors": 3, "fixed_hours": 2 },
+    "full_truck_minimum": { "fill_ratio": 0.6667, "per_side_hours": { "T12": 1.0, "T20": 1.5 } },
+    "self_loading_ignores_access": true
+  },
+  "price_modifiers": {
+    "time_slots": [
+      { "code": "LATE_EVENING", "from": "21:30", "to": "23:00", "pct_on_labor": 30 },
+      { "code": "NIGHT", "from": "23:00", "to": "07:00", "pct_on_labor": 50 }
+    ],
+    "bulky_item_floor3_no_lift": { "eur_per_item_per_address": 5 },
+    "phone_booking_fee": 10,
+    "gros_bras_heavy_multiplier": 1.5,
+    "gros_bras_price_per_helper": true
+  },
+  "duration_policy": {
+    "max_extra_hours_over_estimate": 4,
+    "rounding": "ceil_hour"
+  },
+  "volume_policy": {
+    "list_overrides_surface": true,
+    "surface_height_m": 2,
+    "surface_divisor": 4,
+    "home_type_surfaces_m2": { "Studio": 25, "T2": 45, "T3": 65, "T4+": 85 },
+    "quote_above_m3": 20
+  },
+  "cancellation_policy": {
+    "free_until_hours_before": 2,
+    "late_cancel_ratio_of_min_price": 0.5,
+    "no_show_ratio_of_min_price": 1.0,
+    "waiting_free_minutes": 10
+  },
+  "booking_policy": {
+    "min_lead_hours": 2,
+    "open_24_7": true,
+    "max_missions_per_booking": 3,
+    "stopover_max_count": 1,
+    "stopover_durations_min": [30, 60, 90]
+  },
+  "parking_policy": {
+    "mandatory_zones_postcode_prefixes": ["75"],
+    "certificate_formats": ["pdf", "jpg", "png"],
+    "permit_lead_days": 14
+  },
+  "flat_services": [
+    { "code": "CLE_EN_MAIN", "label": "Clé en main", "from_price": null, "mode": "quote", "callback_hours": 2 },
+    { "code": "GROUPAGE", "label": "Groupage et longue distance", "from_price": null, "mode": "quote", "callback_hours": 2 },
+    { "code": "DEBARRAS", "label": "Débarras", "from_price": 40, "mode": "quote", "callback_hours": 2 },
+    { "code": "MONTAGE", "label": "Montage de meuble", "from_price": 40, "mode": "quote", "callback_hours": 2 },
+    { "code": "MONTE_MEUBLE", "label": "Monte-meuble", "from_price": 80, "mode": "quote", "callback_hours": 2 }
+  ],
+  "offers_policy": {
+    "ranking_weights": { "price": 0.3, "rating": 0.3, "on_time": 0.4 },
+    "one_offer_per_jogger": true,
+    "close_others_on_accept": true
+  },
+  "rounding": { "total": "cent" }
+}

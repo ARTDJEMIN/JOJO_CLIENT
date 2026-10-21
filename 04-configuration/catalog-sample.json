@@ -1,0 +1,25 @@
+{
+  "note": "Extrait du catalogue visible dans les maquettes (catégorie Salon + objets cités). Le catalogue complet compte 100 objets ; les volumes sont ceux des écrans de référence. Les attributs bulky / heavy / special sont à compléter par l'équipe métier.",
+  "categories": ["Salon", "Chambre", "Électroménager", "Cuisine", "Bureau", "Cartons et bagages", "Loisirs"],
+  "items": [
+    { "id": "salon.canape_1p", "category": "Salon", "name": "Canapé 1 place", "volume_m3": 0.8, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.canape_2p", "category": "Salon", "name": "Canapé 2 places", "volume_m3": 1.5, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.canape_3p", "category": "Salon", "name": "Canapé 3 places", "volume_m3": 2.0, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.canape_4p", "category": "Salon", "name": "Canapé 4 places", "volume_m3": 2.5, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.canape_angle", "category": "Salon", "name": "Canapé d'angle", "volume_m3": 3.0, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.fauteuil", "category": "Salon", "name": "Fauteuil", "volume_m3": 0.8, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.pouf", "category": "Salon", "name": "Pouf", "volume_m3": 0.2, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.table_basse", "category": "Salon", "name": "Table basse", "volume_m3": 0.5, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.console", "category": "Salon", "name": "Console", "volume_m3": 0.4, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.meuble_tv", "category": "Salon", "name": "Meuble TV", "volume_m3": 0.6, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.tv_petite", "category": "Salon", "name": "Télévision petite ou moyenne", "volume_m3": 0.2, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.tv_grande", "category": "Salon", "name": "Télévision grande taille", "volume_m3": 0.4, "bulky": false, "heavy": false, "special": false },
+    { "id": "salon.bibliotheque", "category": "Salon", "name": "Bibliothèque", "volume_m3": 1.2, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.vitrine", "category": "Salon", "name": "Vitrine", "volume_m3": 1.0, "bulky": true, "heavy": false, "special": false },
+    { "id": "salon.tapis_roule", "category": "Salon", "name": "Tapis roulé", "volume_m3": 0.2, "bulky": false, "heavy": false, "special": false },
+    { "id": "electro.lave_linge", "category": "Électroménager", "name": "Lave-linge", "volume_m3": 0.5, "bulky": true, "heavy": true, "special": false },
+    { "id": "electro.frigo_americain", "category": "Électroménager", "name": "Réfrigérateur américain", "volume_m3": null, "bulky": true, "heavy": true, "special": true },
+    { "id": "loisirs.piano", "category": "Loisirs", "name": "Piano", "volume_m3": null, "bulky": true, "heavy": true, "special": true },
+    { "id": "bureau.coffre_fort", "category": "Bureau", "name": "Coffre-fort", "volume_m3": null, "bulky": false, "heavy": true, "special": true }
+  ]
+}

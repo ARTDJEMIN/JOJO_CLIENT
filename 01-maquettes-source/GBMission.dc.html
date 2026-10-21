@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gros bras — La mission</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button,input{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="NouvelleDemande.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Gros bras</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 1 sur 5</span><span style="font-weight: 700; color: #A5401F">La mission</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Que doivent faire les Gros Bras ?</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">Des bras pour porter, sans camion. Ils viennent par leurs propres moyens.</p>
+    </div>
+
+    <div role="radiogroup" aria-label="Type de mission" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
+        <button role="radio" aria-checked="{{t.checked}}" onClick="{{t.pick}}" style="text-align: left; min-height: 84px; padding: 12px; border-radius: 16px; border: {{t.border}}; background: {{t.bg}}; color: #1B1714; display: flex; flex-direction: column; gap: 4px; cursor: pointer">
+          <span style="font-weight: 700; font-size: 14px; line-height: 1.25">{{t.name}}</span>
+          <span style="font-size: 12px; line-height: 1.35; color: #6E625A">{{t.desc}}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <label style="display: flex; flex-direction: column; gap: 8px">
+        <span style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px"><span style="width: 22px; height: 22px; border-radius: 11px; background: #C04E2A; color: #FFFFFF; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">1</span>Lieu de la mission</span>
+        <span style="height: 54px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #DCCBBB; border-radius: 14px; display: flex; align-items: center; gap: 10px; padding: 0 14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input value="165 Rue Abdelmalek Sayad, 92000 Nanterre" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 15px; color: #1B1714">
+        </span>
+      </label>
+
+      <sc-if value="{{second}}" hint-placeholder-val="{{false}}">
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px"><span style="width: 22px; height: 22px; border-radius: 11px; background: #1B1714; color: #FFFFFF; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">2</span>Deuxième lieu</span>
+          <span style="height: 54px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #DCCBBB; border-radius: 14px; display: flex; align-items: center; gap: 10px; padding: 0 14px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+            <input placeholder="Où les Gros Bras vont-ils ensuite ?" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 15px; color: #1B1714">
+          </span>
+          <span style="font-size: 12px; line-height: 1.4; color: #6E625A">10 km inclus entre les deux lieux ; le trajet compte dans la durée.</span>
+        </label>
+      </sc-if>
+
+      <button onClick="{{toggleSecond}}" style="align-self: flex-start; height: 40px; padding: 0 14px; border-radius: 20px; border: 1px dashed #C9B6A5; background: transparent; color: #A5401F; font-weight: 600; font-size: 13px; cursor: pointer">{{secondLabel}}</button>
+    </div>
+
+    <div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 14px; background: #F5ECE3; font-size: 13px; line-height: 1.45; color: #5E534B">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E534B" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+      Sans camion, pas de place de stationnement à réserver. Besoin d'un véhicule ? Choisissez plutôt Transport.
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px">
+    <a href="GBAffaires.dc.html" style="height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Continuer
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { task: 'load', second: false };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var tasks = [
+      { id: 'load', name: 'Charger un véhicule', desc: 'Camion de location ou le vôtre' },
+      { id: 'unload', name: 'Décharger un véhicule', desc: 'À l’arrivée de votre camion' },
+      { id: 'stairs', name: 'Monter ou descendre', desc: 'Meubles, électroménager, cartons' },
+      { id: 'inside', name: 'Déplacer sur place', desc: 'D’une pièce ou d’un étage à l’autre' }
+    ].map(function (t) {
+      var on = t.id === st.task;
+      return { name: t.name, desc: t.desc, checked: on ? 'true' : 'false',
+        border: on ? '1.5px solid #C04E2A' : '1px solid #E6D8CB', bg: on ? '#FBEDE7' : '#FFFFFF',
+        pick: function () { self.setState({ task: t.id }); } };
+    });
+    return {
+      tasks: tasks,
+      second: st.second,
+      secondLabel: st.second ? 'Retirer le deuxième lieu' : '+ Ajouter un deuxième lieu',
+      toggleSecond: function () { self.setState({ second: !st.second }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Déménagement — Vos affaires</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button,input{font-family:inherit}
+.hs{scrollbar-width:none}.hs::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="DemAdresses.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Déménagement</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 2 sur 5</span><span style="font-weight: 700; color: #A5401F">Vos affaires</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+    </div>
+    <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px">
+      <span style="border: 1px solid #E2BFB0; color: #A5401F; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 600">Déménagement</span>
+      <span style="border: 1px solid #E2BFB0; color: #A5401F; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 600">31,7 km</span>
+      <span style="border: 1px solid #E2BFB0; color: #A5401F; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 600">1 escale</span>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Qu'est-ce que vous déménagez ?</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">Listez vos affaires pour un prix au plus juste, ou estimez le volume par la surface du logement.</p>
+    </div>
+
+    <div role="radiogroup" aria-label="Façon de décrire vos affaires" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 14px; background: #F0E6DC">
+      <button role="radio" aria-checked="{{listAria}}" onClick="{{pickList}}" style="height: 40px; border-radius: 10px; border: 0; background: {{listBg}}; color: #1B1714; font-weight: {{listWeight}}; font-size: 14px; cursor: pointer">Je liste mes affaires</button>
+      <button role="radio" aria-checked="{{surfAria}}" onClick="{{pickSurface}}" style="height: 40px; border-radius: 10px; border: 0; background: {{surfBg}}; color: #1B1714; font-weight: {{surfWeight}}; font-size: 14px; cursor: pointer">Par la surface</button>
+    </div>
+
+    <sc-if value="{{isSurface}}" hint-placeholder-val="{{false}}">
+      <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-weight: 600; font-size: 14px">Surface du logement</span>
+          <span style="height: 52px; box-sizing: border-box; border-radius: 14px; border: 1px solid #DCCBBB; background: #FCF8F4; padding: 0 14px; display: flex; align-items: center; gap: 8px">
+            <input type="number" min="5" value="{{surface}}" onChange="{{typeSurface}}" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 18px; font-weight: 700; color: #1B1714">
+            <span style="font-size: 15px; color: #6E625A">m²</span>
+          </span>
+        </label>
+        <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; color: #6E625A">Surface × 2 m de hauteur ÷ 4</span><b style="font-size: 18px; color: #A5401F">{{totalVol}}</b></div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6E625A">Une estimation moins précise que la liste : le Jogger pourra ajuster le montant après la visite ou les photos.</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isList}}" hint-placeholder-val="{{true}}">
+
+    <label style="height: 54px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #DCCBBB; border-radius: 14px; display: flex; align-items: center; gap: 10px; padding: 0 14px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input aria-label="Rechercher un objet" placeholder="Canapé, armoire, carton, lave-linge…" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 15px; color: #1B1714">
+    </label>
+
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <div style="font-weight: 700; font-size: 16px">Parcourir par catégorie</div>
+        <div style="font-size: 13px; color: #6E625A">100 objets</div>
+      </div>
+      <div class="hs" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -20px; padding: 0 20px 2px">
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 0; background: #C04E2A; color: #FFFFFF; font-weight: 600; font-size: 14px">Salon</button>
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 500; font-size: 14px">Chambre</button>
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 500; font-size: 14px">Électroménager</button>
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 500; font-size: 14px">Cuisine</button>
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 500; font-size: 14px">Bureau</button>
+        <button style="flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-weight: 500; font-size: 14px">Cartons et bagages</button>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; overflow: hidden">
+        <sc-for list="{{items}}" as="item" hint-placeholder-count="8">
+          <div style="border-bottom: 1px solid #F1E7DD; background: {{item.bg}}">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 14px">
+              <div style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: #F5ECE3; color: #C04E2A; display: flex; align-items: center; justify-content: center">
+                <sc-if value="{{item.isSofa}}" hint-placeholder-val="{{true}}">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v4H3z"/><path d="M5 17v2M19 17v2"/></svg>
+                </sc-if>
+                <sc-if value="{{item.isTable}}" hint-placeholder-val="{{false}}">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18M5 9v9M19 9v9M8 13h8"/></svg>
+                </sc-if>
+              </div>
+              <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                <div style="font-weight: 600; font-size: 15px">{{item.name}}</div>
+                <div style="font-size: 13px; color: #6E625A">{{item.volLabel}}</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 4px">
+                <button aria-label="Retirer" onClick="{{item.dec}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">−</button>
+                <div style="width: 28px; text-align: center; font-weight: 700; font-size: 16px; color: {{item.countColor}}">{{item.count}}</div>
+                <button aria-label="Ajouter" onClick="{{item.inc}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">+</button>
+              </div>
+            </div>
+            <sc-if value="{{item.expanded}}" hint-placeholder-val="{{false}}">
+              <div style="padding: 0 14px 14px; display: flex; flex-direction: column; gap: 8px">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 12px">
+                  <span style="font-weight: 600; color: #5E534B">Photos · facultatif</span>
+                  <span style="color: #6E625A">{{item.photoCount}}</span>
+                </div>
+                <div class="hs" style="display: flex; gap: 8px; overflow-x: auto">
+                  <sc-for list="{{item.photos}}" as="p" hint-placeholder-count="1">
+                    <sc-if value="{{p.empty}}" hint-placeholder-val="{{true}}">
+                      <button onClick="{{p.toggle}}" aria-label="{{p.aria}}" style="flex: 0 0 76px; height: 76px; border-radius: 12px; border: 1.5px dashed #D2BFAE; background: #FFFFFF; color: #A5401F; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 600; cursor: pointer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+                        {{p.label}}
+                      </button>
+                    </sc-if>
+                    <sc-if value="{{p.filled}}" hint-placeholder-val="{{false}}">
+                      <div style="flex: 0 0 76px; height: 76px; border-radius: 12px; background: #E9D6C8; color: #A5401F; position: relative; display: flex; align-items: center; justify-content: center">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v4H3z"/></svg>
+                        <span style="position: absolute; left: 6px; bottom: 5px; font-size: 10px; font-weight: 700; color: #5E3A28">{{p.label}}</span>
+                        <button onClick="{{p.toggle}}" aria-label="Retirer la photo" style="position: absolute; top: 4px; right: 4px; width: 26px; height: 26px; border-radius: 13px; border: 0; background: rgba(27,23,20,0.7); color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+                      </div>
+                    </sc-if>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #F1E7DD; background: #FCF8F4">
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 14px">Autres pièces</span><span style="font-size: 12px; color: #6E625A">Chambre, cuisine, cartons… · 35 objets · 10,7 m³</span></div>
+          <button style="height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 13px; font-weight: 600; cursor: pointer">Modifier</button>
+        </div>
+        <button style="width: 100%; height: 52px; border: 0; background: #FFFFFF; color: #A5401F; font-weight: 600; font-size: 14px; cursor: pointer">Voir les 15 objets du Salon</button>
+      </div>
+    </div>
+    </sc-if>
+
+    <div style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; background: {{truckBg}}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A5401F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></svg>
+      <div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 1.4"><b style="font-size: 14px">{{truckTitle}}</b><span style="color: #5E534B">{{truckNote}}</span></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 16px">Qui charge et décharge ?</div>
+      <button onClick="{{pickSelf}}" aria-pressed="{{selfPressed}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 16px; border: {{selfBorder}}; background: {{selfBg}}; color: #1B1714; cursor: pointer">
+        <span aria-hidden="true" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; border-radius: 10px; border: {{selfRing}}; box-sizing: border-box; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 5px; background: {{selfDot}}"></span></span>
+        <span style="display: flex; flex-direction: column; gap: 3px"><span style="font-weight: 700; font-size: 15px">Je charge moi-même</span><span style="font-size: 13px; color: #5E534B">Seul ou avec un ami, le Jogger conduit</span></span>
+      </button>
+      <div style="border-radius: 16px; border: {{helpBorder}}; background: {{helpBg}}; overflow: hidden">
+        <button onClick="{{pickHelp}}" aria-pressed="{{helpPressed}}" style="width: 100%; text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 0; background: transparent; color: #1B1714; cursor: pointer">
+          <span aria-hidden="true" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; border-radius: 10px; border: {{helpRing}}; box-sizing: border-box; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 5px; background: {{helpDot}}"></span></span>
+          <span style="display: flex; flex-direction: column; gap: 3px"><span style="font-weight: 700; font-size: 15px">Avec des Gros Bras</span><span style="font-size: 13px; color: #5E534B">Un ou plusieurs Joggers portent avec le chauffeur</span></span>
+        </button>
+        <sc-if value="{{withHelp}}" hint-placeholder-val="{{false}}">
+          <div style="margin: 0 12px 12px; padding: 14px; border-radius: 14px; background: #FFFFFF; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+              <div style="display: flex; flex-direction: column; gap: 2px">
+                <div style="font-weight: 700; font-size: 15px">Nombre de Gros Bras</div>
+                <div style="font-size: 12px; color: #6E625A">En plus du chauffeur</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 4px">
+                <button aria-label="Un Gros Bras de moins" onClick="{{helpDec}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">−</button>
+                <div style="width: 32px; text-align: center; font-weight: 800; font-size: 20px; color: #A5401F">{{helpers}}</div>
+                <button aria-label="Un Gros Bras de plus" onClick="{{helpInc}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 20px; cursor: pointer">+</button>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px">
+              <sc-for list="{{crewIcons}}" as="ci" hint-placeholder-count="2">
+                <span style="width: 34px; height: 34px; border-radius: 17px; background: {{ci.bg}}; color: {{ci.color}}; display: flex; align-items: center; justify-content: center">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+                </span>
+              </sc-for>
+              <span style="font-size: 12px; color: #6E625A; margin-left: 4px">{{crewLabel}}</span>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px; display: flex; align-items: center; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 2px; min-width: 96px">
+      <div style="font-weight: 800; font-size: 18px; color: #A5401F">{{totalVol}}</div>
+      <div style="font-size: 13px; color: #6E625A">{{totalCount}}</div>
+    </div>
+    <a href="DemAccesDepart.dc.html" style="flex: 1; height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Continuer
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { counts: { c3: 1, fa: 1, tb: 1 }, photos: {}, help: true, helpers: 2, mode: 'list', surface: 30 };
+  }
+  renderVals() {
+    var base = [
+      { id: 'c1', name: 'Canapé 1 place', vol: 0.8, kind: 'sofa' },
+      { id: 'c2', name: 'Canapé 2 places', vol: 1.5, kind: 'sofa' },
+      { id: 'c3', name: 'Canapé 3 places', vol: 2, kind: 'sofa' },
+      { id: 'c4', name: 'Canapé 4 places', vol: 2.5, kind: 'sofa' },
+      { id: 'ca', name: "Canapé d'angle", vol: 3, kind: 'sofa' },
+      { id: 'fa', name: 'Fauteuil', vol: 0.8, kind: 'sofa' },
+      { id: 'po', name: 'Pouf', vol: 0.2, kind: 'sofa' },
+      { id: 'tb', name: 'Table basse', vol: 0.5, kind: 'table' }
+    ];
+    var self = this;
+    var st = this.state;
+    var counts = st.counts || {};
+    var photos = st.photos || {};
+    var fmt = function (n) { return (Math.round(n * 10) / 10).toString().replace('.', ','); };
+    var totalV = 0, totalN = 0;
+    var items = base.map(function (b) {
+      var c = counts[b.id] || 0;
+      totalV += c * b.vol; totalN += c;
+      var shots = photos[b.id] || [];
+      var nFilled = 0;
+      var slots = [];
+      for (var i = 0; i < c; i++) {
+        (function (i) {
+          var on = !!shots[i];
+          if (on) nFilled++;
+          slots.push({
+            empty: !on, filled: on,
+            label: c > 1 ? (b.kind === 'table' ? 'Table ' : 'Photo ') + (i + 1) : 'Ajouter',
+            aria: 'Ajouter une photo, ' + b.name + ' ' + (i + 1),
+            toggle: function () {
+              var all = Object.assign({}, photos);
+              var arr = (all[b.id] || []).slice();
+              arr[i] = !arr[i];
+              all[b.id] = arr;
+              self.setState({ photos: all });
+            }
+          });
+        })(i);
+      }
+      return {
+        name: b.name,
+        volLabel: fmt(b.vol) + ' m³',
+        count: c,
+        countColor: c > 0 ? '#A5401F' : '#9A8D83',
+        bg: c > 0 ? '#FFF7F3' : '#FFFFFF',
+        isSofa: b.kind === 'sofa',
+        isTable: b.kind === 'table',
+        expanded: c > 0,
+        photos: slots,
+        photoCount: nFilled + ' sur ' + c,
+        inc: function () { var n = Object.assign({}, counts); n[b.id] = c + 1; self.setState({ counts: n }); },
+        dec: function () { var n = Object.assign({}, counts); n[b.id] = Math.max(0, c - 1); self.setState({ counts: n }); }
+      };
+    });
+    totalV += 10.7; totalN += 35;
+    var isSurface = st.mode === 'surface';
+    if (isSurface) { totalV = (Number(st.surface) || 0) * 2 / 4; }
+    var truckTitle, truckNote, truckBg = '#FBEDE7';
+    if (totalV <= 12) { truckTitle = 'Camion 12 m³ conseillé'; truckNote = 'Déménagement : au moins 1 h de chargement et 1 h de déchargement.'; }
+    else if (totalV <= 20) { truckTitle = 'Camion 20 m³ conseillé'; truckNote = 'Déménagement : au moins 1 h 30 de chargement et 1 h 30 de déchargement.'; }
+    else { truckTitle = 'Plus de 20 m³ : sur devis'; truckNote = 'Plusieurs camions ou une prestation clé en main ; un conseiller vous rappelle sous 2 h.'; truckBg = '#FFF1D6'; }
+    var help = st.help, hn = st.helpers;
+    var crewIcons = [{ bg: '#1B1714', color: '#FFFFFF' }];
+    for (var k = 0; k < hn; k++) crewIcons.push({ bg: '#C04E2A', color: '#FFFFFF' });
+    var on = '1.5px solid #C04E2A', off = '1px solid #DCCBBB';
+    return {
+      items: items,
+      totalVol: fmt(totalV) + ' m³',
+      totalCount: (isSurface ? 'par la surface' : (totalN + (totalN > 1 ? ' objets' : ' objet'))) + (help ? ' · ' + hn + ' Gros Bras' : ''),
+      isSurface: isSurface, isList: !isSurface, surface: st.surface,
+      listAria: isSurface ? 'false' : 'true', surfAria: isSurface ? 'true' : 'false',
+      listBg: isSurface ? 'transparent' : '#FFFFFF', surfBg: isSurface ? '#FFFFFF' : 'transparent',
+      listWeight: isSurface ? '500' : '700', surfWeight: isSurface ? '700' : '500',
+      pickList: function () { self.setState({ mode: 'list' }); },
+      pickSurface: function () { self.setState({ mode: 'surface' }); },
+      typeSurface: function (e) { self.setState({ surface: e.target.value }); },
+      truckTitle: truckTitle, truckNote: truckNote, truckBg: truckBg,
+      withHelp: help,
+      helpers: hn,
+      crewIcons: crewIcons,
+      crewLabel: '1 chauffeur + ' + hn + ' Gros Bras',
+      selfPressed: help ? 'false' : 'true', helpPressed: help ? 'true' : 'false',
+      selfBorder: help ? off : on, selfBg: help ? '#FFFFFF' : '#FBEDE7',
+      selfRing: help ? '2px solid #CDBFB2' : '2px solid #C04E2A', selfDot: help ? 'transparent' : '#C04E2A',
+      helpBorder: help ? on : off, helpBg: help ? '#FBEDE7' : '#FFFFFF',
+      helpRing: help ? '2px solid #C04E2A' : '2px solid #CDBFB2', helpDot: help ? '#C04E2A' : 'transparent',
+      pickSelf: function () { self.setState({ help: false }); },
+      pickHelp: function () { self.setState({ help: true }); },
+      helpInc: function () { self.setState({ helpers: Math.min(3, hn + 1) }); },
+      helpDec: function () { self.setState({ helpers: Math.max(1, hn - 1) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Jojo — Demande envoyée</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714;text-decoration:none}a:hover{color:#C04E2A}
+button{font-family:inherit}
+@keyframes jojoPulse{0%{transform:scale(0.7);opacity:0.6}100%{transform:scale(2.4);opacity:0}}
+.pulse{animation:jojoPulse 1.8s ease-out infinite}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 56px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 22px; background: #2F7A55; color: #FFFFFF; display: flex; align-items: center; justify-content: center">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      </span>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <h1 style="margin: 0; font-weight: 700; font-size: 22px; letter-spacing: -0.01em">Demande envoyée</h1>
+        <span style="font-size: 13px; color: #6E625A">Retrouvez-la dans l'onglet Demandes.</span>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1.5px solid #C04E2A; border-radius: 18px; padding: 14px 16px; display: flex; gap: 14px; align-items: center">
+      <span style="position: relative; width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center">
+        <span class="pulse" aria-hidden="true" style="position: absolute; width: 18px; height: 18px; border-radius: 9px; background: #C04E2A"></span>
+        <span style="position: relative; width: 40px; height: 40px; border-radius: 20px; background: #FBEDE7; color: #C04E2A; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
+      </span>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+        <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 4px 9px; background: #FBEDE7; color: #A5401F; font-size: 12px; font-weight: 700"><span style="width: 7px; height: 7px; border-radius: 4px; background: #A5401F"></span>Recherche en cours</span>
+        <span style="font-size: 13px; line-height: 1.4; color: #5E534B">Les Joggers proches reçoivent votre demande. Vous pourrez comparer leurs offres dès qu'elles arrivent.</span>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 16px; display: flex; flex-direction: column">
+      <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px">Suivi</div>
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 20px; height: 20px; border-radius: 10px; background: #2F7A55; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span style="width: 2px; height: 24px; background: #2F7A55"></span></div>
+        <div style="display: flex; justify-content: space-between; flex: 1; font-size: 14px"><b>Demande envoyée</b><span style="color: #6E625A; font-size: 12px">à l'instant</span></div>
+      </div>
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 20px; height: 20px; border-radius: 10px; border: 2px solid #C04E2A; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><span style="width: 8px; height: 8px; border-radius: 4px; background: #C04E2A"></span></span><span style="width: 2px; height: 24px; background: #E8D9CC"></span></div>
+        <div style="font-size: 14px; font-weight: 700; color: #A5401F">Recherche en cours · réception des offres</div>
+      </div>
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 20px; height: 20px; border-radius: 10px; border: 2px solid #D9CCBF; box-sizing: border-box"></span><span style="width: 2px; height: 24px; background: #E8D9CC"></span></div>
+        <div style="font-size: 14px; color: #6E625A">Choix d'une offre</div>
+      </div>
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 20px; height: 20px; border-radius: 10px; border: 2px solid #D9CCBF; box-sizing: border-box"></span></div>
+        <div style="font-size: 14px; color: #6E625A">Jour J · sam. 24 oct., 09:00</div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-weight: 700; font-size: 15px">Itinéraire</div><span style="font-size: 13px; color: #6E625A">31,7 km</span></div>
+      <div style="display: flex; gap: 12px">
+        <span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 10px; background: #C04E2A; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">A</span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">165 Rue Abdelmalek Sayad, 92000 Nanterre</span><span style="font-size: 12px; color: #6E625A">RDC · portage 15–30 m · place réservée</span></span>
+      </div>
+      <div style="display: flex; gap: 12px">
+        <span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 10px; border: 2px solid #C04E2A; box-sizing: border-box; color: #A5401F; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">E</span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">92130 Issy-les-Moulineaux</span><span style="font-size: 12px; color: #6E625A">Escale · 60 min sur place</span></span>
+      </div>
+      <div style="display: flex; gap: 12px">
+        <span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 10px; background: #1B1714; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">B</span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">98 Quai de la Rapée, 75012 Paris</span><span style="font-size: 12px; color: #6E625A">RDC · place réservée · certificat ajouté</span></span>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 4px 16px">
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Service</span><b>Transport d'objet</b></div>
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Date</span><b>sam. 24 oct. · 09:00</b></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Vos affaires</span><b style="text-align: right">Canapé 2 places · 1,5 m³</b></div>
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Chargement</span><b>par vous, le Jogger conduit</b></div>
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F1E7DD; font-size: 14px"><span style="color: #6E625A">Formule</span><b>DemSolo · 4 h · 12 m³</b></div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; font-size: 14px"><span style="color: #6E625A">Estimation</span><b style="color: #A5401F; font-size: 18px">160 €</b></div>
+    </div>
+
+    <div style="font-size: 12px; line-height: 1.45; color: #6E625A">Montant estimatif : le prix final dépend de l'offre que vous accepterez. Annulation gratuite jusqu'à 2 h avant.</div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <a href="DetailRecherche.dc.html" style="height: 52px; border-radius: 26px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center">Suivre ma demande</a>
+      <a href="Main.dc.html" style="height: 52px; border-radius: 26px; border: 1px solid #DCCBBB; background: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; box-sizing: border-box">Retour à l'accueil</a>
+    </div>
+  </div>
+
+  <nav aria-label="Menu principal" style="height: 84px; flex-shrink: 0; box-sizing: border-box; background: #FFFFFF; border-top: 1px solid #F0E8E0; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end">
+    <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      Accueil
+    </a>
+    <a href="Demandes.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #C04E2A; font-size: 11px; font-weight: 600; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>
+      Demandes
+    </a>
+    <div style="display: flex; justify-content: center">
+      <a href="NouvelleDemande.dc.html" aria-label="Nouvelle demande" style="width: 52px; height: 52px; margin-top: -18px; border-radius: 26px; background: #C04E2A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(192,78,42,0.3)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </a>
+    </div>
+    <a href="Messages.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+      Messages
+    </a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Profil
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

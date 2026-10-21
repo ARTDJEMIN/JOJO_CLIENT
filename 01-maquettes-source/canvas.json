@@ -1,0 +1,423 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "AccesArrivee.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "6 · Accès à l'arrivée",
+      "w": 390,
+      "x": 2350,
+      "y": 0,
+      "page": "commande"
+    },
+    "AccesDepart.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "5 · Accès au départ",
+      "w": 390,
+      "x": 1880,
+      "y": 0,
+      "page": "commande"
+    },
+    "Adresses.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "3 · Les adresses",
+      "w": 390,
+      "x": 940,
+      "y": 0,
+      "page": "commande"
+    },
+    "Affaires.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "4 · Vos affaires",
+      "w": 390,
+      "x": 1410,
+      "y": 0,
+      "page": "commande"
+    },
+    "Confirmation.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "10 · Demande envoyée",
+      "w": 390,
+      "x": 4230,
+      "y": 0,
+      "page": "commande"
+    },
+    "Demandes.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "11 · Mes demandes",
+      "w": 390,
+      "x": 0,
+      "y": 0,
+      "page": "suivi"
+    },
+    "Date.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "7 · La date",
+      "w": 390,
+      "x": 2820,
+      "y": 0,
+      "page": "commande"
+    },
+    "NouvelleDemande.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "2 · Choix du service (+)",
+      "w": 390,
+      "x": 470,
+      "y": 0,
+      "page": "commande"
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "1 · Accueil",
+      "w": 390,
+      "x": 0,
+      "y": 0,
+      "page": "commande"
+    },
+    "Proposition.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "8 · Votre proposition",
+      "w": 390,
+      "x": 3290,
+      "y": 0,
+      "page": "commande"
+    },
+    "Recap.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "9 · Récapitulatif",
+      "w": 390,
+      "x": 3760,
+      "y": 0,
+      "page": "commande"
+    },
+    "DetailRecherche.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "12 · Détail · Recherche en cours (offres)",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "DetailAttente.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "13 · Détail · En attente de validation",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "DetailAcceptee.dc.html": {
+      "x": 1410,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "14 · Détail · Acceptée",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "DetailAnnulee.dc.html": {
+      "x": 1880,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "15 · Détail · Annulée",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "Messages.dc.html": {
+      "x": 2350,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "16 · Messages",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "Conversation.dc.html": {
+      "x": 2820,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "17 · Discussion avec le Jogger",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "suivi"
+    },
+    "DemAdresses.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D3 · Les adresses",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemAffaires.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D4 · Vos affaires (liste ou surface)",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemAccesDepart.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D5 · Accès au départ",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemAccesArrivee.dc.html": {
+      "x": 1410,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D6 · Accès à l'arrivée",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemDate.dc.html": {
+      "x": 1880,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D7 · La date",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemProposition.dc.html": {
+      "x": 2350,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D8 · Votre proposition (grille réelle)",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemRecap.dc.html": {
+      "x": 2820,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D9 · Récapitulatif",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "DemConfirmation.dc.html": {
+      "x": 3290,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "D10 · Demande envoyée",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "demenagement"
+    },
+    "GBMission.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G1 · La mission et le lieu",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBAffaires.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G2 · Vos affaires et charges lourdes",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBAcces.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G3 · Les accès",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBDate.dc.html": {
+      "x": 1410,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G4 · Quand ?",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBProposition.dc.html": {
+      "x": 1880,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G5 · Votre proposition",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBRecap.dc.html": {
+      "x": 2350,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G6 · Récapitulatif",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    },
+    "GBConfirmation.dc.html": {
+      "x": 2820,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "G7 · Demande envoyée",
+      "is_interactive": true,
+      "radius": 36,
+      "page": "grosbras"
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-21T17:25:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas",
+    "page": "commande"
+  },
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "Commande · de l'accueil à l'envoi de la demande",
+      "w": 240,
+      "x": 0,
+      "y": -300,
+      "page": "commande"
+    },
+    "t3": {
+      "x": 0,
+      "y": -300,
+      "text": "Suivi des demandes et messagerie",
+      "kind": "title1",
+      "maxW": 3210,
+      "page": "suivi"
+    },
+    "t4": {
+      "x": 0,
+      "y": -300,
+      "text": "Déménagement · même parcours que le Transport",
+      "kind": "title1",
+      "maxW": 3680,
+      "page": "demenagement"
+    },
+    "t5": {
+      "x": 0,
+      "y": -300,
+      "text": "Gros bras · des bras sans camion",
+      "kind": "title1",
+      "maxW": 3210,
+      "page": "grosbras"
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "NouvelleDemande.dc.html",
+    "Adresses.dc.html",
+    "Affaires.dc.html",
+    "AccesDepart.dc.html",
+    "AccesArrivee.dc.html",
+    "Date.dc.html",
+    "Proposition.dc.html",
+    "Recap.dc.html",
+    "Confirmation.dc.html",
+    "Demandes.dc.html",
+    "DetailRecherche.dc.html",
+    "DetailAttente.dc.html",
+    "DetailAcceptee.dc.html",
+    "DetailAnnulee.dc.html",
+    "Messages.dc.html",
+    "Conversation.dc.html",
+    "DemAdresses.dc.html",
+    "DemAffaires.dc.html",
+    "DemAccesDepart.dc.html",
+    "DemAccesArrivee.dc.html",
+    "DemDate.dc.html",
+    "DemProposition.dc.html",
+    "DemRecap.dc.html",
+    "DemConfirmation.dc.html",
+    "GBMission.dc.html",
+    "GBAffaires.dc.html",
+    "GBAcces.dc.html",
+    "GBDate.dc.html",
+    "GBProposition.dc.html",
+    "GBRecap.dc.html",
+    "GBConfirmation.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "commande",
+      "name": "Commande"
+    },
+    {
+      "id": "suivi",
+      "name": "Suivi et messages"
+    },
+    {
+      "id": "demenagement",
+      "name": "Déménagement"
+    },
+    {
+      "id": "grosbras",
+      "name": "Gros bras"
+    }
+  ],
+  "title": "Jojo Client — Parcours Transport, Déménagement et Gros bras"
+}

@@ -1,0 +1,357 @@
+openapi: 3.0.3
+info:
+  title: Jojo Client API
+  version: 0.1.0
+  description: |
+    Contrat d'API entre l'app Flutter Jojo Client et le backend.
+    Le prix est toujours calculé par le serveur (service de tarification) à partir de la version
+    de paramètres active à la date de la prestation. L'app n'embarque aucune règle de prix.
+servers:
+  - url: https://api.jojo.example/v1
+    description: Adresse à remplacer
+tags:
+  - name: Estimation
+  - name: Demandes
+  - name: Offres
+  - name: Messagerie
+  - name: Référentiel
+paths:
+  /formulas:
+    get:
+      tags: [Référentiel]
+      summary: Matrice des formules et prix « dès » pour l'affichage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/FormulaMatrix' }
+  /catalog/items:
+    get:
+      tags: [Référentiel]
+      summary: Catalogue des objets (100 objets, par catégorie)
+      parameters:
+        - { name: category, in: query, schema: { type: string } }
+        - { name: q, in: query, description: Recherche par début de nom, schema: { type: string } }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/CatalogItem' } }
+  /quotes/estimate:
+    post:
+      tags: [Estimation]
+      summary: Calcule une estimation (rappelé à chaque changement de durée, camion ou équipe)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RequestDraft' }
+      responses:
+        '200':
+          description: Estimation calculée
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Estimate' }
+        '422':
+          description: Combinaison camion × Gros Bras indisponible ou données manquantes
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+  /requests:
+    get:
+      tags: [Demandes]
+      summary: Liste des demandes du client (onglet Demandes)
+      parameters:
+        - name: status
+          in: query
+          schema: { $ref: '#/components/schemas/RequestStatus' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/RequestSummary' } }
+    post:
+      tags: [Demandes]
+      summary: Envoie la demande (passe en « Recherche en cours »)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [draft, estimateId, acceptTerms]
+              properties:
+                draft: { $ref: '#/components/schemas/RequestDraft' }
+                estimateId: { type: string }
+                acceptTerms: { type: boolean }
+                noteForJogger: { type: string }
+      responses:
+        '201':
+          description: Demande créée
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RequestDetail' }
+  /requests/{id}:
+    get:
+      tags: [Demandes]
+      summary: Détail d'une demande
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RequestDetail' }
+  /requests/{id}/cancel:
+    post:
+      tags: [Demandes]
+      summary: Annule la demande ; renvoie les frais calculés selon la politique d'annulation
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        content:
+          application/json:
+            schema: { type: object, properties: { reason: { type: string } } }
+      responses:
+        '200':
+          description: Demande annulée
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { $ref: '#/components/schemas/RequestStatus' }
+                  cancellationFee: { type: number }
+  /requests/{id}/offers:
+    get:
+      tags: [Offres]
+      summary: Offres classées de la meilleure à la moins bonne ; liste vide dès qu'une offre est acceptée
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/Offer' } }
+  /offers/{id}/accept:
+    post:
+      tags: [Offres]
+      summary: Accepte une offre — la demande passe en « Acceptée », les autres offres sont clôturées, la conversation s'ouvre
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request: { $ref: '#/components/schemas/RequestDetail' }
+                  conversationId: { type: string }
+  /offers/{id}/reject:
+    post:
+      tags: [Offres]
+      summary: Rejette une offre (retirée de la liste du client)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '204': { description: Offre rejetée }
+  /requests/{id}/validate-amount:
+    post:
+      tags: [Offres]
+      summary: Valide le montant ajusté par le Jogger (statut « En attente de validation » → « Acceptée »)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RequestDetail' }
+  /conversations:
+    get:
+      tags: [Messagerie]
+      summary: Discussions du client (une par demande acceptée)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/Conversation' } }
+  /conversations/{id}/messages:
+    get:
+      tags: [Messagerie]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/Message' } }
+    post:
+      tags: [Messagerie]
+      summary: Envoie un message (refusé si la conversation est en lecture seule)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        content:
+          application/json:
+            schema: { type: object, required: [text], properties: { text: { type: string } } }
+      responses:
+        '201':
+          description: Message envoyé
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+        '409': { description: Conversation fermée (demande annulée) }
+components:
+  parameters:
+    Id: { name: id, in: path, required: true, schema: { type: string } }
+  schemas:
+    Service: { type: string, enum: [transport, demenagement, gros_bras, groupage, remorquage] }
+    RequestStatus: { type: string, enum: [searching, awaiting_validation, accepted, cancelled, completed] }
+    Address:
+      type: object
+      required: [label, lat, lng]
+      properties:
+        label: { type: string }
+        lat: { type: number }
+        lng: { type: number }
+        postcode: { type: string }
+        floor: { type: integer, description: '0 = rez-de-chaussée' }
+        lift: { type: boolean, description: 'Ascenseur et le mobilier y passe' }
+        carryM: { type: number, description: Distance de portage en mètres }
+        personPerLanding: { type: boolean }
+        accessNotes: { type: string }
+        parkingReserved: { type: boolean }
+        parkingCertificateUrl: { type: string, nullable: true }
+    Stopover:
+      type: object
+      properties:
+        address: { $ref: '#/components/schemas/Address' }
+        minutes: { type: integer, enum: [30, 60, 90] }
+        extraHelpers: { type: integer }
+        task: { type: string }
+    ItemLine:
+      type: object
+      properties:
+        catalogId: { type: string }
+        qty: { type: integer }
+        photos: { type: array, items: { type: string } }
+    RequestDraft:
+      type: object
+      required: [service]
+      properties:
+        service: { $ref: '#/components/schemas/Service' }
+        mission: { type: string, enum: [load, unload, stairs, inside], description: Gros bras uniquement }
+        addresses: { type: array, items: { $ref: '#/components/schemas/Address' } }
+        stopovers: { type: array, items: { $ref: '#/components/schemas/Stopover' } }
+        items: { type: array, items: { $ref: '#/components/schemas/ItemLine' } }
+        volumeMode: { type: string, enum: [list, surface, home_type] }
+        surfaceM2: { type: number }
+        homeType: { type: string, enum: [Studio, T2, T3, T4+] }
+        heavyItem: { type: object, nullable: true, properties: { label: { type: string }, weightKg: { type: number } } }
+        specialItems: { type: integer }
+        truck: { type: string, enum: [NONE, T12, T20] }
+        helpers: { type: integer, minimum: 0, maximum: 3 }
+        chosenHours: { type: integer }
+        startAt: { type: string, format: date-time }
+        channel: { type: string, enum: [app, web, phone] }
+        extras: { type: array, items: { type: string, enum: [MONTAGE, DEBARRAS] } }
+    PriceLine:
+      type: object
+      properties:
+        code: { type: string }
+        label: { type: string }
+        amount: { type: number }
+    Estimate:
+      type: object
+      properties:
+        id: { type: string }
+        quoteRequired: { type: boolean }
+        formula: { type: string }
+        formulaLabel: { type: string }
+        truck: { type: string }
+        helpers: { type: integer }
+        volume: { type: number }
+        estimatedHours: { type: number }
+        estimatedPalier: { type: integer }
+        hours: { type: integer }
+        onSiteHours: { type: integer }
+        kmIncluded: { type: integer }
+        overtimePerMin: { type: number }
+        lines: { type: array, items: { $ref: '#/components/schemas/PriceLine' } }
+        total: { type: number }
+        alerts: { type: array, items: { type: string } }
+        configVersion: { type: string }
+    RequestSummary:
+      type: object
+      properties:
+        id: { type: string }
+        service: { $ref: '#/components/schemas/Service' }
+        status: { $ref: '#/components/schemas/RequestStatus' }
+        route: { type: string }
+        startAt: { type: string, format: date-time }
+        price: { type: number, nullable: true }
+        offersCount: { type: integer }
+        isNew: { type: boolean }
+    RequestDetail:
+      allOf:
+        - $ref: '#/components/schemas/RequestSummary'
+        - type: object
+          properties:
+            draft: { $ref: '#/components/schemas/RequestDraft' }
+            estimate: { $ref: '#/components/schemas/Estimate' }
+            acceptedOffer: { $ref: '#/components/schemas/Offer' }
+            timeline: { type: array, items: { type: object, properties: { step: { type: string }, at: { type: string, format: date-time }, done: { type: boolean } } } }
+            cancellation: { type: object, nullable: true, properties: { by: { type: string, enum: [client, jogger] }, reason: { type: string }, fee: { type: number } } }
+    Offer:
+      type: object
+      properties:
+        id: { type: string }
+        rank: { type: integer }
+        best: { type: boolean }
+        jogger: { type: object, properties: { id: { type: string }, firstName: { type: string }, rating: { type: number }, reviews: { type: integer }, jobsDone: { type: integer } } }
+        price: { type: number }
+        formula: { type: string }
+        hours: { type: integer }
+        truck: { type: string }
+        arrivalTime: { type: string }
+        onTime: { type: boolean }
+        overtimePerMin: { type: number }
+        message: { type: string }
+        score: { type: number }
+    Conversation:
+      type: object
+      properties:
+        id: { type: string }
+        requestId: { type: string }
+        jogger: { type: object, properties: { firstName: { type: string } } }
+        lastMessage: { type: string }
+        unread: { type: integer }
+        readOnly: { type: boolean }
+    Message:
+      type: object
+      properties:
+        id: { type: string }
+        from: { type: string, enum: [client, jogger, system] }
+        text: { type: string }
+        sentAt: { type: string, format: date-time }
+    FormulaMatrix:
+      type: object
+      properties:
+        formulas: { type: array, items: { type: object, properties: { code: { type: string }, label: { type: string }, truck: { type: string }, helpers: { type: integer }, fromPrice: { type: number } } } }
+    CatalogItem:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        category: { type: string }
+        volumeM3: { type: number }
+        bulky: { type: boolean }
+        heavy: { type: boolean }
+        special: { type: boolean }
+    Error:
+      type: object
+      properties:
+        code: { type: string }
+        message: { type: string }

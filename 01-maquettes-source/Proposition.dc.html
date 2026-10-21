@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Transport — Votre proposition</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="Date.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Transport</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 5 sur 5</span><span style="font-weight: 700; color: #A5401F">Votre prestation</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Votre proposition personnalisée</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">Nous estimons votre besoin à <b style="color: #1B1714">4 h</b> avec un camion de 12 m³. Modifiez la durée, le camion ou la main-d'œuvre : le montant se recalcule aussitôt.</p>
+    </div>
+
+    <div style="border-radius: 24px; overflow: hidden; background: #FFFFFF; border: 1px solid #E6D8CB">
+      <div style="background: #C04E2A; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 6px; position: relative; overflow: hidden">
+        <div aria-hidden="true" style="position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 90px; background: rgba(255,255,255,0.1)"></div>
+        <span style="align-self: flex-start; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 5px 11px; font-size: 12px; font-weight: 700">Recommandé pour vous</span>
+        <div style="margin-top: 8px; font-size: 14px; font-weight: 600">À partir de</div>
+        <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 64px; line-height: 1; letter-spacing: -0.04em">{{total}} €</div>
+        <div style="font-size: 14px">DemSolo · {{hours}} h de prestation · 1,5 m³</div>
+      </div>
+      <div style="padding: 4px 20px 8px">
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Formule {{hours}} h · {{truckLabel}}</span><b>{{base}} €</b></div>
+        <sc-if value="{{hasHelp}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Coup de main · {{hours}} h</span><b>{{help}} €</b></div>
+        </sc-if>
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Kilomètres · 31,7 sur 40 inclus</span><b>0 €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #F1E7DD; font-size: 15px"><span style="color: #5E534B">Majoration horaire</span><b>0 €</b></div>
+        <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #F1E7DD; font-size: 16px"><b>Total estimé</b><b style="color: #A5401F">{{total}} €</b></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; font-size: 14px"><span style="color: #5E534B">En cas de dépassement, au prorata du temps réel</span><b style="white-space: nowrap">0,83 €/min</b></div>
+      </div>
+      <div style="background: #F8F1EA; padding: 14px 20px; font-size: 13px; line-height: 1.5; color: #5E534B"><b style="color: #1B1714">Ceci est une estimation, pas un devis.</b> Au-delà de la durée réservée, le temps est facturé à la minute. Stationnement et péages éventuels s'ajoutent au réel. Annulation gratuite jusqu'à 2 h avant.</div>
+    </div>
+
+    <div style="display: flex; gap: 12px; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #C04E2A; background: #FBEDE7">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A5401F" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5h.01"/></svg>
+      <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.45"><b style="color: #A5401F">Nos conseils pour éviter les surprises</b>Votre estimation garde de la marge sur la durée. Rien à ajouter de notre côté.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-weight: 700; font-size: 16px">Durée de la prestation</div>
+        <div style="font-size: 13px; line-height: 1.4; color: #6E625A">Jojo estime 4 h pour ce que vous avez décrit.</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <button aria-label="Réduire la durée" onClick="{{dec}}" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 22px; cursor: pointer">−</button>
+        <div style="width: 64px; text-align: center; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 28px">{{hours}} h</div>
+        <button aria-label="Augmenter la durée" onClick="{{inc}}" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #DCCBBB; background: #FFFFFF; color: #1B1714; font-size: 22px; cursor: pointer">+</button>
+        <div style="font-size: 13px; color: {{durColor}}; font-weight: 600">{{durNote}}</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 18px">Le camion</div>
+      <sc-for list="{{trucks}}" as="t" hint-placeholder-count="2">
+        <button onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="text-align: left; padding: 16px; border-radius: 18px; border: {{t.border}}; background: {{t.bg}}; color: #1B1714; display: flex; align-items: center; gap: 14px; cursor: pointer">
+          <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: #F5ECE3; color: #C04E2A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></svg></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 3px">
+            <div style="font-weight: 700; font-size: 16px">{{t.name}}</div>
+            <div style="font-size: 13px; color: #6E625A">{{t.desc}}</div>
+          </div>
+          <div style="font-weight: 800; font-size: 17px">{{t.price}} €</div>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 18px">La main-d'œuvre</div>
+      <sc-for list="{{crew}}" as="c" hint-placeholder-count="2">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="text-align: left; padding: 16px; border-radius: 18px; border: {{c.border}}; background: {{c.bg}}; color: #1B1714; display: flex; align-items: flex-start; gap: 12px; cursor: pointer">
+          <span aria-hidden="true" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; border-radius: 10px; border: {{c.ring}}; box-sizing: border-box; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 5px; background: {{c.dot}}"></span></span>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+            <div style="font-weight: 700; font-size: 15px">{{c.name}}</div>
+            <div style="font-size: 13px; line-height: 1.4; color: #5E534B">{{c.desc}}</div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px">
+              <span style="font-weight: 800; font-size: 15px; color: #A5401F">{{c.price}} € · {{hours}} h</span>
+              <sc-if value="{{c.reco}}" hint-placeholder-val="{{false}}"><span style="background: #C04E2A; color: #FFFFFF; border-radius: 999px; padding: 3px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em">RECOMMANDÉ</span></sc-if>
+            </div>
+          </div>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px; display: flex; align-items: center; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 2px; min-width: 92px">
+      <div style="font-size: 12px; color: #6E625A">Total estimé</div>
+      <div style="font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; color: #A5401F">{{total}} €</div>
+    </div>
+    <a href="Recap.dc.html" style="flex: 1; height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Réserver
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { hours: 4, truck: 't12', help: false };
+  }
+  renderVals() {
+    var self = this;
+    var h = this.state.hours, tk = this.state.truck, help = this.state.help;
+    var rates = { t12: 40, t20: 65 };
+    var helpRate = 10;
+    var base = rates[tk] * h;
+    var helpCost = help ? helpRate * h : 0;
+    var total = base + helpCost;
+    var trucks = [
+      { id: 't12', name: 'Camion 12 m³', desc: 'Studio, petit T2, quelques meubles' },
+      { id: 't20', name: 'Camion 20 m³', desc: 'T2 chargé, T3, gros volumes' }
+    ].map(function (t) {
+      var on = t.id === tk;
+      return { name: t.name, desc: t.desc, price: rates[t.id] * h, on: on ? 'true' : 'false',
+        border: on ? '1.5px solid #C04E2A' : '1px solid #DCCBBB', bg: on ? '#FBEDE7' : '#FFFFFF',
+        pick: function () { self.setState({ truck: t.id }); } };
+    });
+    var crew = [
+      { v: false, name: "Je m'occupe de tout. Pas besoin d'aide.", desc: 'Je charge et décharge moi-même ou avec un ami, le Jogger conduit. Descendez vos affaires avant son arrivée.', reco: true },
+      { v: true, name: "J'aurai besoin d'un coup de main.", desc: 'Un ou plusieurs Gros Bras chargent et déchargent avec le Jogger.', reco: false }
+    ].map(function (c) {
+      var on = c.v === help;
+      return { name: c.name, desc: c.desc, reco: c.reco, on: on ? 'true' : 'false',
+        price: base + (c.v ? helpRate * h : 0),
+        border: on ? '1.5px solid #C04E2A' : '1px solid #DCCBBB', bg: on ? '#FBEDE7' : '#FFFFFF',
+        ring: on ? '2px solid #C04E2A' : '2px solid #CDBFB2', dot: on ? '#C04E2A' : 'transparent',
+        pick: function () { self.setState({ help: c.v }); } };
+    });
+    return {
+      hours: h, base: base, help: helpCost, hasHelp: help, total: total,
+      truckLabel: tk === 't12' ? '12 m³' : '20 m³',
+      trucks: trucks, crew: crew,
+      durNote: h === 4 ? 'durée recommandée' : (h < 4 ? 'risque de dépassement' : 'marge confortable'),
+      durColor: h < 4 ? '#A5401F' : '#6E625A',
+      inc: function () { self.setState({ hours: Math.min(10, h + 1) }); },
+      dec: function () { self.setState({ hours: Math.max(2, h - 1) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

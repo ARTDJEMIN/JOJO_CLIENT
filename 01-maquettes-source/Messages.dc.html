@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Jojo — Messages</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714;text-decoration:none}a:hover{color:#C04E2A}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 56px 20px 0; display: flex; flex-direction: column; gap: 4px">
+    <h1 style="margin: 0; font-weight: 700; font-size: 22px; letter-spacing: -0.01em">Messages</h1>
+    <div style="font-size: 13px; color: #6E625A">Une discussion s'ouvre pour chaque demande acceptée.</div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 18px 20px 24px; display: flex; flex-direction: column; gap: 10px">
+    <a href="Conversation.dc.html" style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 18px; padding: 14px; display: flex; align-items: center; gap: 12px">
+      <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 24px; background: #1B1714; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center">J</span>
+      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+        <span style="display: flex; justify-content: space-between; gap: 8px"><b style="font-size: 15px">[Prénom du Jogger]</b><span style="font-size: 12px; font-weight: 600; color: #A5401F">10:42</span></span>
+        <span style="font-size: 12px; font-weight: 600; color: #2F7A55">Déménagement · lun. 2 nov.</span>
+        <span style="display: flex; justify-content: space-between; gap: 8px; align-items: center">
+          <span style="font-size: 13px; color: #1B1714; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Parfait, je serai là à 8 h devant l'immeuble.</span>
+          <span style="min-width: 20px; height: 20px; border-radius: 10px; background: #C04E2A; color: #FFFFFF; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0">2</span>
+        </span>
+      </span>
+    </a>
+
+    <div style="background: #FFFFFF; border: 1px solid #EFE6DC; border-radius: 18px; padding: 14px; display: flex; align-items: center; gap: 12px; opacity: 0.75">
+      <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 24px; background: #E8DDD3; color: #5E534B; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center">J</span>
+      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+        <span style="display: flex; justify-content: space-between; gap: 8px"><b style="font-size: 15px">[Prénom du Jogger]</b><span style="font-size: 12px; color: #6E625A">11 oct.</span></span>
+        <span style="font-size: 12px; font-weight: 600; color: #6E625A">Remorquage · demande annulée</span>
+        <span style="font-size: 13px; color: #6E625A; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Discussion fermée</span>
+      </span>
+    </div>
+
+    <div style="margin-top: 8px; display: flex; gap: 10px; padding: 14px; border-radius: 16px; background: #F5ECE3; font-size: 13px; line-height: 1.45; color: #5E534B">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E534B" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+      Les demandes en recherche ou en attente de validation n'ont pas encore de discussion.
+    </div>
+  </div>
+
+  <nav aria-label="Menu principal" style="height: 84px; flex-shrink: 0; box-sizing: border-box; background: #FFFFFF; border-top: 1px solid #F0E8E0; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end">
+    <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      Accueil
+    </a>
+    <a href="Demandes.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>
+      Demandes
+    </a>
+    <div style="display: flex; justify-content: center">
+      <a href="NouvelleDemande.dc.html" aria-label="Nouvelle demande" style="width: 52px; height: 52px; margin-top: -18px; border-radius: 26px; background: #C04E2A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(192,78,42,0.3)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </a>
+    </div>
+    <a href="Messages.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #C04E2A; font-size: 11px; font-weight: 600; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+      Messages
+    </a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Profil
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

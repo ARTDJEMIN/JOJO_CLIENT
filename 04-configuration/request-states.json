@@ -1,0 +1,20 @@
+{
+  "states": [
+    { "code": "searching", "label": "Recherche en cours", "color": "#A5401F", "background": "#FBEDE7", "client_actions": ["view_offers", "accept_offer", "reject_offer", "edit", "cancel"], "chat": "closed" },
+    { "code": "awaiting_validation", "label": "En attente de validation", "color": "#8A5A00", "background": "#FFF1D6", "client_actions": ["validate_amount", "refuse_amount", "cancel"], "chat": "closed" },
+    { "code": "accepted", "label": "Acceptée", "color": "#2F7A55", "background": "#E3F2EA", "client_actions": ["chat", "call", "cancel"], "chat": "open" },
+    { "code": "cancelled", "label": "Annulée", "color": "#5E534B", "background": "#EFE9E3", "client_actions": ["rebook"], "chat": "read_only" },
+    { "code": "completed", "label": "Terminée", "color": "#5E534B", "background": "#EFE9E3", "client_actions": ["rate", "rebook"], "chat": "read_only", "to_confirm": true }
+  ],
+  "transitions": [
+    { "from": null, "to": "searching", "event": "request_sent" },
+    { "from": "searching", "to": "accepted", "event": "offer_accepted", "side_effects": ["close_other_offers", "open_conversation"] },
+    { "from": "searching", "to": "awaiting_validation", "event": "amount_adjusted_by_jogger" },
+    { "from": "awaiting_validation", "to": "accepted", "event": "amount_validated", "side_effects": ["open_conversation"] },
+    { "from": "awaiting_validation", "to": "searching", "event": "amount_refused" },
+    { "from": "searching", "to": "cancelled", "event": "cancelled" },
+    { "from": "awaiting_validation", "to": "cancelled", "event": "cancelled" },
+    { "from": "accepted", "to": "cancelled", "event": "cancelled", "side_effects": ["compute_cancellation_fee", "conversation_read_only"] },
+    { "from": "accepted", "to": "completed", "event": "service_done", "side_effects": ["compute_overtime", "conversation_read_only"] }
+  ]
+}

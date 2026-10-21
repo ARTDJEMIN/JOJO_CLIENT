@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Jojo — Mes demandes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714;text-decoration:none}a:hover{color:#C04E2A}
+button{font-family:inherit}
+.hs{scrollbar-width:none}.hs::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 56px 20px 0; display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-weight: 700; font-size: 22px; letter-spacing: -0.01em">Mes demandes</h1>
+    <div class="hs" role="tablist" aria-label="Filtrer par statut" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -20px; padding: 0 20px 2px">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+        <button role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="flex-shrink: 0; height: 38px; padding: 0 14px; border-radius: 19px; border: {{t.border}}; background: {{t.bg}}; color: {{t.color}}; font-weight: 600; font-size: 13px; display: flex; align-items: center; gap: 6px; cursor: pointer">{{t.label}}<span style="min-width: 18px; height: 18px; border-radius: 9px; padding: 0 5px; box-sizing: border-box; background: {{t.countBg}}; color: {{t.countColor}}; font-size: 11px; display: inline-flex; align-items: center; justify-content: center">{{t.count}}</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 12px">
+    <sc-for list="{{list}}" as="r" hint-placeholder-count="4">
+      <div style="background: #FFFFFF; border: {{r.cardBorder}}; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 11px; background: #F5ECE3; color: #C04E2A; display: flex; align-items: center; justify-content: center">
+            <sc-if value="{{r.isTransport}}" hint-placeholder-val="{{true}}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v4H3z"/><path d="M5 17v2M19 17v2"/></svg></sc-if>
+            <sc-if value="{{r.isBras}}" hint-placeholder-val="{{false}}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="4.5" r="2"/><path d="M5 21v-6l-1.5-4L7 8l3 3h3"/><path d="M9 21v-5"/><rect x="13" y="8" width="8" height="7" rx="1"/></svg></sc-if>
+            <sc-if value="{{r.isDem}}" hint-placeholder-val="{{false}}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></svg></sc-if>
+            <sc-if value="{{r.isTow}}" hint-placeholder-val="{{false}}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16v-4l2-4h7l2 4v4z"/><circle cx="5.5" cy="17" r="1.6"/><circle cx="10.5" cy="17" r="1.6"/><path d="M13 12l6-7v9"/><path d="M19 14v1.5a1.5 1.5 0 1 1-1.5 1.5"/></svg></sc-if>
+          </span>
+          <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+            <span style="display: flex; align-items: center; gap: 6px"><b style="font-size: 15px">{{r.service}}</b><sc-if value="{{r.isNew}}" hint-placeholder-val="{{false}}"><span style="background: #C04E2A; color: #FFFFFF; border-radius: 999px; padding: 2px 7px; font-size: 10px; font-weight: 700">Nouvelle</span></sc-if></span>
+            <span style="font-size: 13px; color: #5E534B; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.route}}</span>
+          </span>
+          <span style="font-weight: 700; font-size: 15px; color: {{r.priceColor}}">{{r.price}}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+          <span style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 5px 10px; background: {{r.badgeBg}}; color: {{r.badgeColor}}; font-size: 12px; font-weight: 700">
+            <span style="width: 7px; height: 7px; border-radius: 4px; background: {{r.badgeColor}}"></span>{{r.status}}
+          </span>
+          <span style="font-size: 12px; color: #6E625A">{{r.date}}</span>
+        </div>
+
+        <sc-if value="{{r.hint}}" hint-placeholder-val="{{false}}">
+          <div style="font-size: 13px; line-height: 1.4; color: #5E534B">{{r.hint}}</div>
+        </sc-if>
+
+        <div style="display: flex; gap: 8px; border-top: 1px solid #F1E7DD; padding-top: 12px">
+          <a href="{{r.detailHref}}" style="flex: 1; height: 42px; border-radius: 21px; border: 1px solid #DCCBBB; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">Détails</a>
+          <sc-if value="{{r.action}}" hint-placeholder-val="{{false}}">
+            <a href="{{r.actionHref}}" style="flex: 1; height: 42px; border-radius: 21px; background: {{r.actionBg}}; color: {{r.actionColor}}; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">{{r.action}}</a>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+    <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+      <div style="padding: 40px 20px; text-align: center; color: #6E625A; font-size: 14px">Aucune demande avec ce statut.</div>
+    </sc-if>
+  </div>
+
+  <nav aria-label="Menu principal" style="height: 84px; flex-shrink: 0; box-sizing: border-box; background: #FFFFFF; border-top: 1px solid #F0E8E0; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end">
+    <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      Accueil
+    </a>
+    <a href="Demandes.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #C04E2A; font-size: 11px; font-weight: 600; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>
+      Demandes
+    </a>
+    <div style="display: flex; justify-content: center">
+      <a href="NouvelleDemande.dc.html" aria-label="Nouvelle demande" style="width: 52px; height: 52px; margin-top: -18px; border-radius: 26px; background: #C04E2A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(192,78,42,0.3)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </a>
+    </div>
+    <a href="Messages.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+      Messages
+    </a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6E625A; font-size: 11px; font-weight: 500; padding-bottom: 2px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Profil
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'all' };
+  }
+  renderVals() {
+    var self = this, tab = this.state.tab;
+    var S = {
+      search: { label: 'Recherche en cours', short: 'En recherche', bg: '#FBEDE7', color: '#A5401F' },
+      wait: { label: 'En attente de validation', short: 'En attente', bg: '#FFF1D6', color: '#8A5A00' },
+      ok: { label: 'Acceptée', short: 'Acceptées', bg: '#E3F2EA', color: '#2F7A55' },
+      cancel: { label: 'Annulée', short: 'Annulées', bg: '#EFE9E3', color: '#6E625A' }
+    };
+    var data = [
+      { st: 'search', kind: 'transport', service: 'Transport', route: 'Nanterre → Paris 12e', date: 'sam. 24 oct. · 09:00', price: '160 €', isNew: true,
+        hint: '3 offres reçues de Joggers. Comparez-les et acceptez celle qui vous convient.', action: 'Voir les offres', actionBg: '#C04E2A', actionColor: '#FFFFFF', detail: 'DetailRecherche.dc.html' },
+      { st: 'wait', kind: 'bras', service: 'Gros bras', route: 'Puteaux · 2 Gros Bras', date: 'ven. 30 oct. · 14:00', price: '[MONTANT]',
+        hint: 'Un Jogger a accepté. Confirmez le montant pour réserver.', action: 'Valider', actionBg: '#C04E2A', actionColor: '#FFFFFF', detail: 'DetailAttente.dc.html', actionHref: 'DetailAttente.dc.html' },
+      { st: 'ok', kind: 'dem', service: 'Déménagement', route: 'Courbevoie → Paris 17e', date: 'lun. 2 nov. · 08:00', price: '[MONTANT]',
+        hint: null, action: 'Discuter', actionBg: '#1B1714', actionColor: '#FFFFFF', detail: 'DetailAcceptee.dc.html', actionHref: 'Conversation.dc.html' },
+      { st: 'cancel', kind: 'tow', service: 'Remorquage', route: 'Rueil-Malmaison → Nanterre', date: 'lun. 12 oct.', price: '—',
+        hint: null, action: 'Refaire', actionBg: '#F5ECE3', actionColor: '#1B1714', detail: 'DetailAnnulee.dc.html', actionHref: 'NouvelleDemande.dc.html' }
+    ];
+    var count = function (k) { return k === 'all' ? data.length : data.filter(function (d) { return d.st === k; }).length; };
+    var tabs = [{ k: 'all', label: 'Toutes' }].concat(['search', 'wait', 'ok', 'cancel'].map(function (k) { return { k: k, label: S[k].short }; }))
+      .map(function (t) {
+        var on = t.k === tab;
+        return { label: t.label, count: count(t.k), sel: on ? 'true' : 'false',
+          border: on ? '0' : '1px solid #DCCBBB', bg: on ? '#1B1714' : '#FFFFFF', color: on ? '#FFFFFF' : '#1B1714',
+          countBg: on ? 'rgba(255,255,255,0.22)' : '#F0E6DC', countColor: on ? '#FFFFFF' : '#5E534B',
+          pick: function () { self.setState({ tab: t.k }); } };
+      });
+    var list = data.filter(function (d) { return tab === 'all' || d.st === tab; }).map(function (d) {
+      var s = S[d.st];
+      return {
+        service: d.service, route: d.route, date: d.date, price: d.price, isNew: !!d.isNew,
+        isTransport: d.kind === 'transport', isBras: d.kind === 'bras', isDem: d.kind === 'dem', isTow: d.kind === 'tow',
+        status: s.label, badgeBg: s.bg, badgeColor: s.color,
+        priceColor: d.st === 'cancel' ? '#9A8D83' : '#1B1714',
+        cardBorder: d.isNew ? '1.5px solid #C04E2A' : '1px solid #E6D8CB',
+        hint: d.hint, action: d.action, actionBg: d.actionBg, actionColor: d.actionColor,
+        detailHref: d.detail, actionHref: d.actionHref || d.detail
+      };
+    });
+    return { tabs: tabs, list: list, empty: list.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

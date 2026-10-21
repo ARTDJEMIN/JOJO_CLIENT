@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gros bras — Quand ?</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button{font-family:inherit}
+.hs{scrollbar-width:none}.hs::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="GBAcces.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Gros bras</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 4 sur 5</span><span style="font-weight: 700; color: #A5401F">Quand ?</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Quand les Gros Bras arrivent-ils ?</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">24 h/24 et 7 j/7, au moins 2 h à l'avance.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 700; font-size: 15px">Le jour</div>
+      <div class="hs" style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -20px; padding: 0 20px">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="5">
+          <button onClick="{{d.pick}}" aria-pressed="{{d.on}}" style="flex-shrink: 0; width: 72px; height: 68px; border-radius: 14px; border: {{d.border}}; background: {{d.bg}}; color: {{d.color}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer">
+            <span style="font-size: 12px; font-weight: 600">{{d.top}}</span>
+            <span style="font-size: 18px; font-weight: 800">{{d.num}}</span>
+          </button>
+        </sc-for>
+        <button style="flex-shrink: 0; width: 72px; height: 68px; border-radius: 14px; border: 1px dashed #C9B6A5; background: transparent; color: #A5401F; font-size: 12px; font-weight: 600; cursor: pointer">Autre date</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 15px">L'heure d'arrivée</span><span style="font-size: 13px; color: #6E625A">{{dayLabel}}</span></div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{slots}}" as="s" hint-placeholder-count="12">
+          <button onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="height: 52px; border-radius: 12px; border: {{s.border}}; background: {{s.bg}}; color: {{s.color}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; cursor: pointer">
+            <span style="font-weight: 600; font-size: 15px">{{s.t}}</span>
+            <sc-if value="{{s.hasTag}}" hint-placeholder-val="{{false}}"><span style="font-size: 10.5px; font-weight: 700; color: #8A5A00">{{s.tag}}</span></sc-if>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 14px; background: {{noteBg}}; font-size: 13px; line-height: 1.45">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E534B" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>{{note}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px">
+    <a href="GBProposition.dc.html" style="height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Voir ma proposition
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { day: 26, time: '13:00' };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var on = '1.5px solid #C04E2A', off = '1px solid #DCCBBB';
+    var days = [
+      { n: 22, top: 'Demain', long: 'Jeudi 22 octobre' },
+      { n: 23, top: 'ven.', long: 'Vendredi 23 octobre' },
+      { n: 24, top: 'sam.', long: 'Samedi 24 octobre' },
+      { n: 25, top: 'dim.', long: 'Dimanche 25 octobre' },
+      { n: 26, top: 'lun.', long: 'Lundi 26 octobre' }
+    ];
+    var label = '';
+    var dayList = days.map(function (d) {
+      var sel = d.n === st.day; if (sel) label = d.long;
+      return { top: d.top, num: d.n, on: sel ? 'true' : 'false', border: sel ? on : off, bg: sel ? '#C04E2A' : '#FFFFFF', color: sel ? '#FFFFFF' : '#1B1714',
+        pick: function () { self.setState({ day: d.n }); } };
+    });
+    var tagOf = function (t) {
+      if (t === '21:30' || t === '22:00') return '+30 %';
+      if (t === '23:00' || t === '01:00' || t === '05:00') return '+50 %';
+      return '';
+    };
+    var slots = ['07:00', '09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:30', '22:00', '23:00', '01:00', '05:00'].map(function (t) {
+      var sel = t === st.time, tag = tagOf(t);
+      return { t: t, tag: tag, hasTag: tag !== '', on: sel ? 'true' : 'false', border: sel ? on : off, bg: sel ? '#FBEDE7' : '#FFFFFF', color: sel ? '#A5401F' : '#1B1714',
+        pick: function () { self.setState({ time: t }); } };
+    });
+    var tag = tagOf(st.time);
+    return {
+      days: dayList, slots: slots, dayLabel: label,
+      note: tag === '' ? 'Aucune majoration sur ce créneau.' : (tag === '+30 %' ? 'Créneau 21 h 30–23 h : + 30 % sur la main-d’œuvre.' : 'Créneau 23 h–7 h : + 50 % sur la main-d’œuvre.'),
+      noteBg: tag === '' ? '#F5ECE3' : '#FFF1D6'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Déménagement — La date</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.scroll>*{flex-shrink:0}
+a{color:#1B1714}a:hover{color:#C04E2A}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF4EE; font-family: Inter, system-ui, sans-serif; color: #1B1714; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="padding: 48px 12px 0; display: flex; align-items: center; justify-content: space-between">
+    <a href="DemAccesArrivee.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #DCCBBB; display: flex; align-items: center; justify-content: center; box-sizing: border-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="font-weight: 700; font-size: 16px">Déménagement</div>
+    <a href="Main.dc.html" aria-label="Quitter" style="width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </a>
+  </div>
+
+  <div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #6E625A">Étape 4 sur 5</span><span style="font-weight: 700; color: #A5401F">La date</span></div>
+    <div style="display: flex; gap: 4px">
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #C04E2A"></div>
+      <div style="flex: 1; height: 4px; border-radius: 2px; background: #E8D9CC"></div>
+    </div>
+  </div>
+
+  <div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em">Quand voulez-vous déménager ?</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E625A">Choisissez un jour puis l'heure d'arrivée du Jogger au départ.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6D8CB; border-radius: 20px; padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 8px">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 2px">
+        <button aria-label="Mois précédent" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: transparent; color: #9A8D83; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+        <div style="font-weight: 700; font-size: 16px">Octobre 2026</div>
+        <button aria-label="Mois suivant" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: transparent; color: #1B1714; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; font-size: 12px; font-weight: 600; color: #6E625A">
+        <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); row-gap: 4px; justify-items: center">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="35">
+          <sc-if value="{{d.blank}}" hint-placeholder-val="{{false}}">
+            <div style="width: 44px; height: 44px"></div>
+          </sc-if>
+          <sc-if value="{{d.real}}" hint-placeholder-val="{{true}}">
+            <button onClick="{{d.pick}}" disabled="{{d.past}}" aria-label="{{d.aria}}" style="width: 44px; height: 44px; border-radius: 22px; border: {{d.border}}; background: {{d.bg}}; color: {{d.color}}; font-weight: {{d.weight}}; font-size: 15px; cursor: pointer">{{d.n}}</button>
+          </sc-if>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <div style="font-weight: 700; font-size: 16px">Heure d'arrivée</div>
+        <div style="font-size: 13px; color: #6E625A">{{dayLabel}}</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{slots}}" as="s" hint-placeholder-count="8">
+          <button onClick="{{s.pick}}" style="height: 46px; border-radius: 12px; border: {{s.border}}; background: {{s.bg}}; color: {{s.color}}; font-weight: 600; font-size: 15px; cursor: pointer">{{s.t}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px; font-size: 13px; line-height: 1.45; color: #6E625A">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E625A" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+      Une majoration horaire éventuelle apparaît dans votre proposition, à l'étape suivante.
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-top: 1px solid #EADDD1; padding: 12px 20px 28px">
+    <a href="DemProposition.dc.html" style="height: 54px; border-radius: 27px; background: #C04E2A; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none">Voir ma proposition
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { day: 24, time: '09:00' };
+  }
+  renderVals() {
+    var self = this;
+    var sel = this.state.day, selT = this.state.time;
+    var today = 21;
+    var names = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
+    var days = [];
+    for (var b = 0; b < 3; b++) days.push({ blank: true, real: false });
+    for (var n = 1; n <= 31; n++) {
+      (function (n) {
+        var past = n < today;
+        var isSel = n === sel;
+        var isToday = n === today;
+        days.push({
+          blank: false, real: true, n: n, past: past,
+          aria: n + ' octobre',
+          bg: isSel ? '#C04E2A' : '#FFFFFF',
+          color: isSel ? '#FFFFFF' : (past ? '#B9ADA3' : '#1B1714'),
+          border: isToday && !isSel ? '1.5px solid #C04E2A' : '0',
+          weight: isSel || isToday ? '700' : '500',
+          pick: function () { if (!past) self.setState({ day: n }); }
+        });
+      })(n);
+    }
+    var wd = names[(sel + 2) % 7];
+    var slots = ['08:00', '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'].map(function (t) {
+      var on = t === selT;
+      return {
+        t: t,
+        bg: on ? '#FBEDE7' : '#FFFFFF',
+        border: on ? '1.5px solid #C04E2A' : '1px solid #DCCBBB',
+        color: on ? '#A5401F' : '#1B1714',
+        pick: function () { self.setState({ time: t }); }
+      };
+    });
+    return { days: days, slots: slots, dayLabel: wd.charAt(0).toUpperCase() + wd.slice(1) + ' ' + sel + ' octobre' };
+  }
+}
+</script>
+</body>
+</html>
